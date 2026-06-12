@@ -585,6 +585,22 @@
       white-space: nowrap;
     }
 
+    .analysis-card--pnl .stack-item {
+      grid-template-columns: 132px minmax(72px, 1fr) 52px minmax(132px, 148px);
+      align-items: start;
+    }
+
+    .analysis-card--pnl .stack-value {
+      padding-top: 1px;
+      font-size: 12px;
+    }
+
+    .analysis-card--pnl .stack-extra {
+      white-space: normal;
+      line-height: 1.45;
+      font-size: 12px;
+    }
+
     .table-card {
       padding: 14px 14px 10px;
     }
@@ -764,24 +780,6 @@
 
       <main class="page-stage">
     <div id="overview" class="view-page active">
-      <div class="summary-strip">
-        <div class="summary-card">
-          <div class="summary-card__label">当前页关注</div>
-          <div class="summary-card__value blue">用户全貌</div>
-          <div class="summary-card__sub">注册、KYC、充值、终端、召回统一展示</div>
-        </div>
-        <div class="summary-card">
-          <div class="summary-card__label">重点指标</div>
-          <div class="summary-card__value green">平台用户结构</div>
-          <div class="summary-card__sub">普通用户与代理团队用户拆开看</div>
-        </div>
-        <div class="summary-card">
-          <div class="summary-card__label">推荐用途</div>
-          <div class="summary-card__value purple">管理层总览</div>
-          <div class="summary-card__sub">先看规模与结构，再切资金和合约</div>
-        </div>
-      </div>
-
       <section class="section">
         <div class="section-head">
           <h2 class="section-title">用户与平台指标</h2>
@@ -861,26 +859,11 @@
               <div class="stack-item"><div class="stack-label">&gt; 5,000 U</div><div class="stack-bar"><span style="width:23%; background:#faad14;"></span></div><div class="stack-value">23%</div><div class="stack-extra">2,109 人</div></div>
             </div>
           </div>
-          <div class="card analysis-card">
-            <h3 class="chart-title">页面一说明</h3>
-            <p class="chart-desc">这一页只承接“谁在平台上、质量如何、能否召回”三个问题，不再混入交易深度内容。</p>
-            <div class="footnote">
-              1. 用户结构、注册来源、终端来源、召回人群集中展示。<br />
-              2. 资金进入平台后去了哪里，请切换到“页面二：资金与现货”。<br />
-              3. 合约的盈利、持仓、强平和行为分析，请切换到“页面三：合约分析”。
-            </div>
-          </div>
         </div>
       </section>
     </div>
 
     <div id="spot" class="view-page">
-      <div class="summary-strip">
-        <div class="summary-card"><div class="summary-card__label">本页关注</div><div class="summary-card__value blue">充提与现货承接</div><div class="summary-card__sub">看净入是否有效转成现货交易</div></div>
-        <div class="summary-card"><div class="summary-card__label">现货成交额</div><div class="summary-card__value green">426.52M</div><div class="summary-card__sub">适合与净入金额联动看</div></div>
-        <div class="summary-card"><div class="summary-card__label">现货手续费</div><div class="summary-card__value purple">524,280</div><div class="summary-card__sub">结合币对偏好和交易次数分层观察</div></div>
-      </div>
-
       <section class="section">
         <div class="section-head"><h2 class="section-title">资金与现货核心指标</h2></div>
         <div class="metric-section">
@@ -962,26 +945,11 @@
               <div class="stack-item"><div class="stack-label">其他币对</div><div class="stack-bar"><span style="width:18%; background:#faad14;"></span></div><div class="stack-value">18%</div><div class="stack-extra">76.8M U</div></div>
             </div>
           </div>
-          <div class="card analysis-card">
-            <h3 class="chart-title">页面二说明</h3>
-            <p class="chart-desc">把“资金进入平台”和“现货交易承接”放在一起，适合判断现货是否吃到净流入。</p>
-            <div class="footnote">
-              1. 如果净入金额上涨但现货成交额没有同步放大，说明资金可能沉淀或流向合约。<br />
-              2. 币对偏好已采用动态 TOP3 口径，避免写死币种。<br />
-              3. 合约盈亏、持仓、强平和行为分析请切换到页面三。
-            </div>
-          </div>
         </div>
       </section>
     </div>
 
     <div id="futures" class="view-page">
-      <div class="summary-strip">
-        <div class="summary-card"><div class="summary-card__label">本页关注</div><div class="summary-card__value blue">合约交易质量</div><div class="summary-card__sub">成交、盈亏、持仓、强平、行为统一展示</div></div>
-        <div class="summary-card"><div class="summary-card__label">合约总盈亏</div><div class="summary-card__value green">+7,218,460</div><div class="summary-card__sub">与已实现、未实现拆开观察</div></div>
-        <div class="summary-card"><div class="summary-card__label">离场客户</div><div class="summary-card__value red">3,556</div><div class="summary-card__sub">已开过仓、当前无持仓且平台总资产小于 1</div></div>
-      </div>
-
       <section class="section">
         <div class="section-head"><h2 class="section-title">合约核心指标</h2></div>
         <div class="metric-section">
@@ -1099,25 +1067,63 @@
             </div>
           </div>
           <div class="card analysis-card">
-            <h3 class="chart-title">合约持仓分层盈亏分析</h3>
-            <p class="chart-desc">单独展示各持仓档位的已实现盈亏、未实现盈亏与盈利率，避免信息被遮挡。</p>
+            <h3 class="chart-title">合约持仓金额分层盈利率分析</h3>
+            <p class="chart-desc">按持仓金额分层观察各档位盈利用户占比，便于判断不同仓位规模下的收益质量。</p>
             <div class="stack-list">
-              <div class="stack-item"><div class="stack-label">0 - 1,000 U</div><div class="stack-bar"><span style="width:32%; background:#13c2c2;"></span></div><div class="stack-value">32%</div><div class="stack-extra">已实 +186k / 未实 +94k</div></div>
-              <div class="stack-item"><div class="stack-label">1,000 - 10,000 U</div><div class="stack-bar"><span style="width:45%; background:#2d8cf0;"></span></div><div class="stack-value">45%</div><div class="stack-extra">已实 +824k / 未实 +516k</div></div>
-              <div class="stack-item"><div class="stack-label">10,000 - 100,000 U</div><div class="stack-bar"><span style="width:51%; background:#52c41a;"></span></div><div class="stack-value">51%</div><div class="stack-extra">已实 +2.42M / 未实 +1.38M</div></div>
-              <div class="stack-item"><div class="stack-label">100,000 - 1,000,000 U</div><div class="stack-bar"><span style="width:58%; background:#7a5af8;"></span></div><div class="stack-value">58%</div><div class="stack-extra">已实 +4.86M / 未实 +2.94M</div></div>
-              <div class="stack-item"><div class="stack-label">1,000,000 - 10,000,000 U</div><div class="stack-bar"><span style="width:63%; background:#faad14;"></span></div><div class="stack-value">63%</div><div class="stack-extra">已实 +6.24M / 未实 +3.52M</div></div>
-              <div class="stack-item"><div class="stack-label">&gt; 10,000,000 U</div><div class="stack-bar"><span style="width:69%; background:#ff4d4f;"></span></div><div class="stack-value">69%</div><div class="stack-extra">已实 +8.18M / 未实 +4.66M</div></div>
+              <div class="stack-item"><div class="stack-label">0 - 1,000 U</div><div class="stack-bar"><span style="width:32%; background:#13c2c2;"></span></div><div class="stack-value">32%</div><div class="stack-extra">2,464 人盈利</div></div>
+              <div class="stack-item"><div class="stack-label">1,000 - 10,000 U</div><div class="stack-bar"><span style="width:45%; background:#2d8cf0;"></span></div><div class="stack-value">45%</div><div class="stack-extra">4,131 人盈利</div></div>
+              <div class="stack-item"><div class="stack-label">10,000 - 100,000 U</div><div class="stack-bar"><span style="width:51%; background:#52c41a;"></span></div><div class="stack-value">51%</div><div class="stack-extra">3,323 人盈利</div></div>
+              <div class="stack-item"><div class="stack-label">100,000 - 1,000,000 U</div><div class="stack-bar"><span style="width:58%; background:#7a5af8;"></span></div><div class="stack-value">58%</div><div class="stack-extra">2,233 人盈利</div></div>
+              <div class="stack-item"><div class="stack-label">1,000,000 - 10,000,000 U</div><div class="stack-bar"><span style="width:63%; background:#faad14;"></span></div><div class="stack-value">63%</div><div class="stack-extra">1,119 人盈利</div></div>
+              <div class="stack-item"><div class="stack-label">&gt; 10,000,000 U</div><div class="stack-bar"><span style="width:69%; background:#ff4d4f;"></span></div><div class="stack-value">69%</div><div class="stack-extra">407 人盈利</div></div>
+            </div>
+          </div>
+          <div class="card analysis-card analysis-card--pnl">
+            <h3 class="chart-title">合约持仓金额分层盈利额分析</h3>
+            <p class="chart-desc">单独展示各持仓档位的已实现盈利额与未实现盈利额，避免信息被遮挡。</p>
+            <div class="stack-list">
+              <div class="stack-item"><div class="stack-label">0 - 1,000 U</div><div class="stack-bar"><span style="width:32%; background:#13c2c2;"></span></div><div class="stack-value">280k</div><div class="stack-extra">已实 +186k / 未实 +94k</div></div>
+              <div class="stack-item"><div class="stack-label">1,000 - 10,000 U</div><div class="stack-bar"><span style="width:45%; background:#2d8cf0;"></span></div><div class="stack-value">1.34M</div><div class="stack-extra">已实 +824k / 未实 +516k</div></div>
+              <div class="stack-item"><div class="stack-label">10,000 - 100,000 U</div><div class="stack-bar"><span style="width:51%; background:#52c41a;"></span></div><div class="stack-value">3.80M</div><div class="stack-extra">已实 +2.42M / 未实 +1.38M</div></div>
+              <div class="stack-item"><div class="stack-label">100,000 - 1,000,000 U</div><div class="stack-bar"><span style="width:58%; background:#7a5af8;"></span></div><div class="stack-value">7.80M</div><div class="stack-extra">已实 +4.86M / 未实 +2.94M</div></div>
+              <div class="stack-item"><div class="stack-label">1,000,000 - 10,000,000 U</div><div class="stack-bar"><span style="width:63%; background:#faad14;"></span></div><div class="stack-value">9.76M</div><div class="stack-extra">已实 +6.24M / 未实 +3.52M</div></div>
+              <div class="stack-item"><div class="stack-label">&gt; 10,000,000 U</div><div class="stack-bar"><span style="width:69%; background:#ff4d4f;"></span></div><div class="stack-value">12.84M</div><div class="stack-extra">已实 +8.18M / 未实 +4.66M</div></div>
             </div>
           </div>
           <div class="card analysis-card">
             <h3 class="chart-title">合约杠杆偏好分析</h3>
-            <p class="chart-desc">帮助识别中高杠杆用户暴露区间和潜在强平风险。</p>
+            <p class="chart-desc">帮助识别不同杠杆区间用户暴露结构和潜在强平风险，按 10-24、25-49、50-74、75-99、100-124、125 倍及以上分层。</p>
             <div class="stack-list">
-              <div class="stack-item"><div class="stack-label">1 - 5 倍</div><div class="stack-bar"><span style="width:34%; background:#13c2c2;"></span></div><div class="stack-value">34%</div><div class="stack-extra">10,068 人</div></div>
-              <div class="stack-item"><div class="stack-label">5 - 10 倍</div><div class="stack-bar"><span style="width:28%; background:#2d8cf0;"></span></div><div class="stack-value">28%</div><div class="stack-extra">8,292 人</div></div>
-              <div class="stack-item"><div class="stack-label">10 - 20 倍</div><div class="stack-bar"><span style="width:22%; background:#52c41a;"></span></div><div class="stack-value">22%</div><div class="stack-extra">6,514 人</div></div>
-              <div class="stack-item"><div class="stack-label">&gt; 20 倍</div><div class="stack-bar"><span style="width:16%; background:#ff4d4f;"></span></div><div class="stack-value">16%</div><div class="stack-extra">4,740 人</div></div>
+              <div class="stack-item"><div class="stack-label">10 - 24 倍</div><div class="stack-bar"><span style="width:24%; background:#13c2c2;"></span></div><div class="stack-value">24%</div><div class="stack-extra">7,108 人</div></div>
+              <div class="stack-item"><div class="stack-label">25 - 49 倍</div><div class="stack-bar"><span style="width:21%; background:#2d8cf0;"></span></div><div class="stack-value">21%</div><div class="stack-extra">6,218 人</div></div>
+              <div class="stack-item"><div class="stack-label">50 - 74 倍</div><div class="stack-bar"><span style="width:17%; background:#52c41a;"></span></div><div class="stack-value">17%</div><div class="stack-extra">5,034 人</div></div>
+              <div class="stack-item"><div class="stack-label">75 - 99 倍</div><div class="stack-bar"><span style="width:13%; background:#7a5af8;"></span></div><div class="stack-value">13%</div><div class="stack-extra">3,850 人</div></div>
+              <div class="stack-item"><div class="stack-label">100 - 124 倍</div><div class="stack-bar"><span style="width:11%; background:#f59e0b;"></span></div><div class="stack-value">11%</div><div class="stack-extra">3,258 人</div></div>
+              <div class="stack-item"><div class="stack-label">125 倍及以上</div><div class="stack-bar"><span style="width:14%; background:#ff4d4f;"></span></div><div class="stack-value">14%</div><div class="stack-extra">4,146 人</div></div>
+            </div>
+          </div>
+          <div class="card analysis-card">
+            <h3 class="chart-title">合约杠杆分层盈利率分析</h3>
+            <p class="chart-desc">按杠杆区间观察盈利用户占比，帮助判断高杠杆区间的收益稳定性。</p>
+            <div class="stack-list">
+              <div class="stack-item"><div class="stack-label">10 - 24 倍</div><div class="stack-bar"><span style="width:49%; background:#13c2c2;"></span></div><div class="stack-value">49%</div><div class="stack-extra">3,483 人盈利</div></div>
+              <div class="stack-item"><div class="stack-label">25 - 49 倍</div><div class="stack-bar"><span style="width:44%; background:#2d8cf0;"></span></div><div class="stack-value">44%</div><div class="stack-extra">2,736 人盈利</div></div>
+              <div class="stack-item"><div class="stack-label">50 - 74 倍</div><div class="stack-bar"><span style="width:38%; background:#52c41a;"></span></div><div class="stack-value">38%</div><div class="stack-extra">1,913 人盈利</div></div>
+              <div class="stack-item"><div class="stack-label">75 - 99 倍</div><div class="stack-bar"><span style="width:33%; background:#7a5af8;"></span></div><div class="stack-value">33%</div><div class="stack-extra">1,271 人盈利</div></div>
+              <div class="stack-item"><div class="stack-label">100 - 124 倍</div><div class="stack-bar"><span style="width:29%; background:#f59e0b;"></span></div><div class="stack-value">29%</div><div class="stack-extra">945 人盈利</div></div>
+              <div class="stack-item"><div class="stack-label">125 倍及以上</div><div class="stack-bar"><span style="width:24%; background:#ff4d4f;"></span></div><div class="stack-value">24%</div><div class="stack-extra">995 人盈利</div></div>
+            </div>
+          </div>
+          <div class="card analysis-card analysis-card--pnl">
+            <h3 class="chart-title">合约杠杆分层盈利额分析</h3>
+            <p class="chart-desc">展示不同杠杆区间的已实现盈利额与未实现盈利额，便于观察收益与风险是否匹配。</p>
+            <div class="stack-list">
+              <div class="stack-item"><div class="stack-label">10 - 24 倍</div><div class="stack-bar"><span style="width:46%; background:#13c2c2;"></span></div><div class="stack-value">3.98M</div><div class="stack-extra">已实 +2.46M / 未实 +1.52M</div></div>
+              <div class="stack-item"><div class="stack-label">25 - 49 倍</div><div class="stack-bar"><span style="width:41%; background:#2d8cf0;"></span></div><div class="stack-value">3.12M</div><div class="stack-extra">已实 +1.98M / 未实 +1.14M</div></div>
+              <div class="stack-item"><div class="stack-label">50 - 74 倍</div><div class="stack-bar"><span style="width:34%; background:#52c41a;"></span></div><div class="stack-value">2.24M</div><div class="stack-extra">已实 +1.42M / 未实 +820k</div></div>
+              <div class="stack-item"><div class="stack-label">75 - 99 倍</div><div class="stack-bar"><span style="width:28%; background:#7a5af8;"></span></div><div class="stack-value">1.58M</div><div class="stack-extra">已实 +1.04M / 未实 +540k</div></div>
+              <div class="stack-item"><div class="stack-label">100 - 124 倍</div><div class="stack-bar"><span style="width:23%; background:#f59e0b;"></span></div><div class="stack-value">1.06M</div><div class="stack-extra">已实 +706k / 未实 +354k</div></div>
+              <div class="stack-item"><div class="stack-label">125 倍及以上</div><div class="stack-bar"><span style="width:19%; background:#ff4d4f;"></span></div><div class="stack-value">782k</div><div class="stack-extra">已实 +498k / 未实 +284k</div></div>
             </div>
           </div>
         </div>
@@ -1125,12 +1131,6 @@
     </div>
 
     <div id="revenue" class="view-page">
-      <div class="summary-strip">
-        <div class="summary-card"><div class="summary-card__label">本页关注</div><div class="summary-card__value blue">手续费与返佣</div><div class="summary-card__sub">平台收入、代理返佣与经营明细集中展示</div></div>
-        <div class="summary-card"><div class="summary-card__label">平台纯手续费上收</div><div class="summary-card__value green">1,124,380</div><div class="summary-card__sub">现货与合约拆开看更清晰</div></div>
-        <div class="summary-card"><div class="summary-card__label">推荐用途</div><div class="summary-card__value purple">经营复盘</div><div class="summary-card__sub">给业务负责人或财务视角汇报</div></div>
-      </div>
-
       <section class="section">
         <div class="section-head"><h2 class="section-title">收入与风险指标</h2></div>
         <div class="metric-section">
