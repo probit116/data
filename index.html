@@ -252,47 +252,141 @@
       font-size: 13px;
     }
 
+    .content-shell {
+      display: grid;
+      grid-template-columns: 280px minmax(0, 1fr);
+      gap: 18px;
+      margin-top: 16px;
+      align-items: start;
+    }
+
+    .page-sidebar {
+      position: sticky;
+      top: 16px;
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.96) 0%, rgba(244,248,255,0.96) 100%);
+      box-shadow: var(--glow);
+    }
+
+    .page-sidebar__title {
+      margin: 0 0 6px;
+      font-size: 15px;
+      font-weight: 800;
+      color: #17304d;
+    }
+
+    .page-sidebar__desc {
+      margin: 0 0 14px;
+      color: var(--ink-soft);
+      font-size: 12px;
+      line-height: 1.7;
+    }
+
     .page-switcher {
       display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
+      grid-template-columns: 1fr;
       gap: 10px;
-      margin-top: 16px;
     }
 
     .page-switch {
-      padding: 14px 16px;
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      background: rgba(255, 255, 255, 0.78);
+      position: relative;
+      padding: 16px 18px 18px;
+      border: 1px solid rgba(45, 140, 240, 0.14);
+      border-radius: 16px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.96) 0%, rgba(243, 248, 255, 0.96) 100%);
       text-align: left;
-      color: var(--ink-soft);
-      box-shadow: var(--glow);
+      color: #46617f;
+      box-shadow:
+        0 10px 24px rgba(21, 38, 73, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.92);
       cursor: pointer;
+      transition:
+        transform 0.18s ease,
+        box-shadow 0.18s ease,
+        border-color 0.18s ease,
+        background 0.18s ease;
     }
 
     .page-switch strong {
       display: block;
-      color: var(--ink);
-      font-size: 14px;
+      color: #17304d;
+      font-size: 15px;
+      font-weight: 800;
     }
 
     .page-switch span {
       display: block;
-      margin-top: 4px;
+      margin-top: 6px;
       font-size: 12px;
       line-height: 1.5;
     }
 
+    .page-switch::after {
+      content: "点击切换";
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 72px;
+      height: 26px;
+      margin-top: 10px;
+      padding: 0 10px;
+      border-radius: 999px;
+      background: rgba(45, 140, 240, 0.1);
+      color: var(--signal-blue);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    .page-switch:hover {
+      transform: translateY(-2px);
+      border-color: rgba(45, 140, 240, 0.34);
+      box-shadow:
+        0 16px 30px rgba(45, 140, 240, 0.14),
+        inset 0 1px 0 rgba(255, 255, 255, 0.96);
+      background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(235, 244, 255, 1) 100%);
+    }
+
+    .page-switch:focus-visible {
+      outline: none;
+      border-color: rgba(45, 140, 240, 0.42);
+      box-shadow:
+        0 0 0 4px rgba(45, 140, 240, 0.14),
+        0 16px 30px rgba(45, 140, 240, 0.16);
+    }
+
     .page-switch.active {
-      border-color: rgba(45, 140, 240, 0.22);
-      background: linear-gradient(135deg, rgba(45, 140, 240, 0.14) 0%, rgba(255,255,255,0.98) 100%);
+      border-color: rgba(45, 140, 240, 0.56);
+      background: linear-gradient(135deg, #2d8cf0 0%, #5baeff 100%);
+      color: rgba(255, 255, 255, 0.9);
+      box-shadow:
+        0 18px 34px rgba(45, 140, 240, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.18);
+      transform: translateY(-1px);
+    }
+
+    .page-switch.active strong,
+    .page-switch.active span {
+      color: #ffffff;
+    }
+
+    .page-switch.active::after {
+      content: "当前页";
+      background: rgba(255, 255, 255, 0.18);
+      color: #ffffff;
     }
 
     .page-note {
-      margin-top: 12px;
+      margin-top: 14px;
       color: var(--ink-soft);
-      font-size: 13px;
+      font-size: 12px;
       line-height: 1.7;
+    }
+
+    .page-stage {
+      min-width: 0;
     }
 
     .view-page {
@@ -364,10 +458,14 @@
 
     .metric-card__value {
       margin-top: 10px;
-      font-size: 30px;
+      font-size: clamp(20px, 1.75vw, 30px);
       font-weight: 800;
-      line-height: 1;
-      letter-spacing: -0.03em;
+      line-height: 1.08;
+      letter-spacing: -0.045em;
+      font-variant-numeric: tabular-nums;
+      white-space: normal;
+      overflow-wrap: anywhere;
+      word-break: break-word;
     }
 
     .metric-card__sub {
@@ -573,7 +671,6 @@
     }
 
     @media (max-width: 1180px) {
-      .page-switcher,
       .summary-strip,
       .metrics-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -588,7 +685,13 @@
     @media (max-width: 820px) {
       .page { padding: 16px; }
       .hero { flex-direction: column; align-items: flex-start; }
-      .page-switcher,
+      .content-shell {
+        grid-template-columns: 1fr;
+      }
+      .page-sidebar {
+        position: static;
+      }
+      .summary-strip,
       .summary-strip,
       .metrics-grid {
         grid-template-columns: 1fr;
@@ -646,14 +749,20 @@
       </div>
     </section>
 
-    <div class="page-switcher">
-      <button class="page-switch active" data-page="overview"><strong>页面一：总览与用户</strong><span>用户核心指标、用户结构、转化、终端与召回分析</span></button>
-      <button class="page-switch" data-page="spot"><strong>页面二：资金与现货</strong><span>充提趋势、现货核心指标、现货币对偏好与分层</span></button>
-      <button class="page-switch" data-page="futures"><strong>页面三：合约分析</strong><span>合约交易、盈亏、持仓、强平与行为分析</span></button>
-      <button class="page-switch" data-page="revenue"><strong>页面四：收入与明细</strong><span>手续费、返佣、平台收入与经营明细表</span></button>
-    </div>
-    <div class="page-note">页签切换时仅显示当前分页内容，方便你现场演示时“一页一主题”，而不是上下滚动一个超长页面。</div>
+    <div class="content-shell">
+      <aside class="page-sidebar">
+        <h3 class="page-sidebar__title">步骤导航</h3>
+        <p class="page-sidebar__desc">左侧导航会一直保留在视野里，点击后仅切换右侧内容，不改变你的视觉焦点。</p>
+        <div class="page-switcher">
+          <button class="page-switch active" data-page="overview"><strong>页面一：总览与用户</strong><span>用户核心指标、用户结构、转化、终端与召回分析</span></button>
+          <button class="page-switch" data-page="spot"><strong>页面二：资金与现货</strong><span>充提趋势、现货核心指标、现货币对偏好与分层</span></button>
+          <button class="page-switch" data-page="futures"><strong>页面三：合约分析</strong><span>合约交易、盈亏、持仓、强平与行为分析</span></button>
+          <button class="page-switch" data-page="revenue"><strong>页面四：收入与明细</strong><span>手续费、返佣、平台收入与经营明细表</span></button>
+        </div>
+        <div class="page-note">点击左侧任一步骤，右侧立即切换对应页面内容，适合现场演示与讲解。</div>
+      </aside>
 
+      <main class="page-stage">
     <div id="overview" class="view-page active">
       <div class="summary-strip">
         <div class="summary-card">
@@ -1130,6 +1239,8 @@
         </div>
       </section>
     </div>
+      </main>
+    </div>
   </div>
 
   <script>
@@ -1145,6 +1256,7 @@
           page.classList.toggle('active', page.id === pageId);
         });
         location.hash = pageId;
+        window.scrollTo({ top: 0, behavior: 'smooth' });
       }
 
       buttons.forEach((button) => {
