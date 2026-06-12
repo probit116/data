@@ -252,12 +252,52 @@
       font-size: 13px;
     }
 
+    .scale-guide {
+      padding: 14px 16px;
+    }
+
+    .scale-guide__title {
+      margin: 0 0 10px;
+      font-size: 14px;
+      font-weight: 700;
+      color: #213149;
+    }
+
+    .scale-guide__grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .scale-guide__item {
+      padding: 10px 12px;
+      border: 1px solid rgba(90, 113, 145, 0.12);
+      border-radius: 12px;
+      background: rgba(248, 251, 255, 0.9);
+    }
+
+    .scale-guide__item strong {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 12px;
+      color: #17304d;
+    }
+
+    .scale-guide__item span {
+      display: block;
+      font-size: 12px;
+      line-height: 1.7;
+      color: var(--ink-soft);
+    }
+
     .content-shell {
       display: grid;
       grid-template-columns: 280px minmax(0, 1fr);
       gap: 18px;
       margin-top: 16px;
       align-items: start;
+      position: relative;
+      overflow: visible;
     }
 
     .page-sidebar {
@@ -387,6 +427,86 @@
 
     .page-stage {
       min-width: 0;
+    }
+
+    .spec-sidebar {
+      position: fixed;
+      top: 16px;
+      left: min(calc(50% + 680px), calc(100vw - 296px));
+      width: 280px;
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.96) 0%, rgba(244,248,255,0.96) 100%);
+      box-shadow: var(--glow);
+      max-height: calc(100vh - 32px);
+      overflow: auto;
+      z-index: 20;
+    }
+
+    .spec-sidebar__title {
+      margin: 0 0 6px;
+      font-size: 15px;
+      font-weight: 800;
+      color: #17304d;
+    }
+
+    .spec-sidebar__desc {
+      margin: 0 0 14px;
+      color: var(--ink-soft);
+      font-size: 12px;
+      line-height: 1.7;
+    }
+
+    .spec-sidebar .scale-guide__grid {
+      grid-template-columns: 1fr;
+    }
+
+    .spec-page {
+      display: none;
+    }
+
+    .spec-page.active {
+      display: block;
+    }
+
+    .spec-block + .spec-block {
+      margin-top: 14px;
+      padding-top: 14px;
+      border-top: 1px dashed rgba(90, 113, 145, 0.18);
+    }
+
+    .spec-block h3 {
+      margin: 0 0 8px;
+      font-size: 13px;
+      color: #213149;
+    }
+
+    .spec-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .spec-item {
+      padding: 10px 12px;
+      border: 1px solid rgba(90, 113, 145, 0.12);
+      border-radius: 12px;
+      background: rgba(248, 251, 255, 0.92);
+    }
+
+    .spec-item strong {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 12px;
+      color: #17304d;
+    }
+
+    .spec-item span {
+      display: block;
+      font-size: 12px;
+      line-height: 1.7;
+      color: var(--ink-soft);
     }
 
     .view-page {
@@ -601,6 +721,20 @@
       font-size: 12px;
     }
 
+    .analysis-card--dense .stack-item {
+      grid-template-columns: 176px minmax(72px, 1fr) 52px 82px;
+      gap: 8px;
+      font-size: 12px;
+    }
+
+    .analysis-card--dense .stack-label {
+      line-height: 1.35;
+    }
+
+    .analysis-card--dense .stack-extra {
+      font-size: 12px;
+    }
+
     .table-card {
       padding: 14px 14px 10px;
     }
@@ -686,9 +820,22 @@
       line-height: 1.7;
     }
 
+    @media (max-width: 1700px) {
+      .spec-sidebar {
+        position: static;
+        width: auto;
+        max-height: none;
+        grid-column: 1 / -1;
+      }
+    }
+
     @media (max-width: 1180px) {
       .summary-strip,
       .metrics-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .scale-guide__grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
@@ -708,8 +855,19 @@
         position: static;
       }
       .summary-strip,
+
+      .spec-sidebar {
+        position: static;
+        width: auto;
+        max-height: none;
+        grid-column: 1 / -1;
+      }
+      .summary-strip,
       .summary-strip,
       .metrics-grid {
+        grid-template-columns: 1fr;
+      }
+      .scale-guide__grid {
         grid-template-columns: 1fr;
       }
       .stack-item {
@@ -790,7 +948,7 @@
           <div class="metrics-grid">
             <div class="metric-card"><div class="metric-card__label">累计注册用户</div><div class="metric-card__value">186,420</div><div class="metric-card__sub">本期新增 12,864</div></div>
             <div class="metric-card"><div class="metric-card__label">普通用户数</div><div class="metric-card__value blue">112,846</div><div class="metric-card__sub">邀请关系中无代理或无上级用户</div></div>
-            <div class="metric-card"><div class="metric-card__label">代理团队用户数</div><div class="metric-card__value purple">73,574</div><div class="metric-card__sub">邀请关系链中存在代理用户</div></div>
+            <div class="metric-card"><div class="metric-card__label">代理团队用户数</div><div class="metric-card__value purple">73,574</div><div class="metric-card__sub">上级链路中存在母合伙人用户</div></div>
             <div class="metric-card"><div class="metric-card__label">累计 KYC 用户数</div><div class="metric-card__value green">126,584</div><div class="metric-card__sub">KYC 通过率 67.9%</div></div>
             <div class="metric-card"><div class="metric-card__label">现货交易用户数</div><div class="metric-card__value">42,318</div><div class="metric-card__sub">活跃现货用户环比 +8.4%</div></div>
             <div class="metric-card"><div class="metric-card__label">合约总交易用户</div><div class="metric-card__value purple">29,614</div><div class="metric-card__sub">统计周期内发生过合约交易的去重用户</div></div>
@@ -1127,6 +1285,40 @@
               <div class="stack-item"><div class="stack-label">125 倍及以上</div><div class="stack-bar"><span style="width:19%; background:#ff4d4f;"></span></div><div class="stack-value">782k</div><div class="stack-extra">已实 +498k / 未实 +284k</div></div>
             </div>
           </div>
+          <div class="card analysis-card analysis-card--dense">
+            <h3 class="chart-title">代理用户盈利率分层分析</h3>
+            <p class="chart-desc">按代理用户合约总盈利率分层展示盈利用户占比，代理用户定义为上级链路中存在母合伙人用户。</p>
+            <div class="stack-list">
+              <div class="stack-item"><div class="stack-label">&lt;= -90%</div><div class="stack-bar"><span style="width:4%; background:#ff4d4f;"></span></div><div class="stack-value">4%</div><div class="stack-extra">486 人</div></div>
+              <div class="stack-item"><div class="stack-label">-90% ~ -50%</div><div class="stack-bar"><span style="width:6%; background:#ff6b6b;"></span></div><div class="stack-value">6%</div><div class="stack-extra">729 人</div></div>
+              <div class="stack-item"><div class="stack-label">-50% ~ -10%</div><div class="stack-bar"><span style="width:9%; background:#f97316;"></span></div><div class="stack-value">9%</div><div class="stack-extra">1094 人</div></div>
+              <div class="stack-item"><div class="stack-label">-10% ~ 0%</div><div class="stack-bar"><span style="width:11%; background:#fb923c;"></span></div><div class="stack-value">11%</div><div class="stack-extra">1337 人</div></div>
+              <div class="stack-item"><div class="stack-label">0% ~ 10%</div><div class="stack-bar"><span style="width:13%; background:#facc15;"></span></div><div class="stack-value">13%</div><div class="stack-extra">1579 人</div></div>
+              <div class="stack-item"><div class="stack-label">10% ~ 30%</div><div class="stack-bar"><span style="width:16%; background:#a3e635;"></span></div><div class="stack-value">16%</div><div class="stack-extra">1944 人</div></div>
+              <div class="stack-item"><div class="stack-label">30% ~ 50%</div><div class="stack-bar"><span style="width:14%; background:#52c41a;"></span></div><div class="stack-value">14%</div><div class="stack-extra">1701 人</div></div>
+              <div class="stack-item"><div class="stack-label">50% ~ 100%</div><div class="stack-bar"><span style="width:10%; background:#13c2c2;"></span></div><div class="stack-value">10%</div><div class="stack-extra">1215 人</div></div>
+              <div class="stack-item"><div class="stack-label">100% ~ 200%</div><div class="stack-bar"><span style="width:8%; background:#2d8cf0;"></span></div><div class="stack-value">8%</div><div class="stack-extra">972 人</div></div>
+              <div class="stack-item"><div class="stack-label">200% ~ 1000%</div><div class="stack-bar"><span style="width:6%; background:#7a5af8;"></span></div><div class="stack-value">6%</div><div class="stack-extra">729 人</div></div>
+              <div class="stack-item"><div class="stack-label">&gt;= 1000%</div><div class="stack-bar"><span style="width:3%; background:#6d28d9;"></span></div><div class="stack-value">3%</div><div class="stack-extra">365 人</div></div>
+            </div>
+          </div>
+          <div class="card analysis-card analysis-card--dense">
+            <h3 class="chart-title">代理用户盈利金额分层分析</h3>
+            <p class="chart-desc">按代理用户合约总盈利金额分层展示盈利用户占比，最低档位为 -100 万 U，最高档位为 100 万 U 及以上。</p>
+            <div class="stack-list">
+              <div class="stack-item"><div class="stack-label">&lt;= -1,000,000 U</div><div class="stack-bar"><span style="width:2%; background:#7f1d1d;"></span></div><div class="stack-value">2%</div><div class="stack-extra">243 人</div></div>
+              <div class="stack-item"><div class="stack-label">-1,000,000 ~ -500,000 U</div><div class="stack-bar"><span style="width:4%; background:#b91c1c;"></span></div><div class="stack-value">4%</div><div class="stack-extra">486 人</div></div>
+              <div class="stack-item"><div class="stack-label">-500,000 ~ -100,000 U</div><div class="stack-bar"><span style="width:7%; background:#dc2626;"></span></div><div class="stack-value">7%</div><div class="stack-extra">851 人</div></div>
+              <div class="stack-item"><div class="stack-label">-100,000 ~ -10,000 U</div><div class="stack-bar"><span style="width:10%; background:#f97316;"></span></div><div class="stack-value">10%</div><div class="stack-extra">1215 人</div></div>
+              <div class="stack-item"><div class="stack-label">-10,000 ~ 0 U</div><div class="stack-bar"><span style="width:13%; background:#fb923c;"></span></div><div class="stack-value">13%</div><div class="stack-extra">1579 人</div></div>
+              <div class="stack-item"><div class="stack-label">0 ~ 10,000 U</div><div class="stack-bar"><span style="width:16%; background:#facc15;"></span></div><div class="stack-value">16%</div><div class="stack-extra">1944 人</div></div>
+              <div class="stack-item"><div class="stack-label">10,000 ~ 50,000 U</div><div class="stack-bar"><span style="width:14%; background:#a3e635;"></span></div><div class="stack-value">14%</div><div class="stack-extra">1701 人</div></div>
+              <div class="stack-item"><div class="stack-label">50,000 ~ 100,000 U</div><div class="stack-bar"><span style="width:11%; background:#52c41a;"></span></div><div class="stack-value">11%</div><div class="stack-extra">1337 人</div></div>
+              <div class="stack-item"><div class="stack-label">100,000 ~ 500,000 U</div><div class="stack-bar"><span style="width:10%; background:#13c2c2;"></span></div><div class="stack-value">10%</div><div class="stack-extra">1215 人</div></div>
+              <div class="stack-item"><div class="stack-label">500,000 ~ 1,000,000 U</div><div class="stack-bar"><span style="width:7%; background:#2d8cf0;"></span></div><div class="stack-value">7%</div><div class="stack-extra">851 人</div></div>
+              <div class="stack-item"><div class="stack-label">&gt;= 1,000,000 U</div><div class="stack-bar"><span style="width:6%; background:#7a5af8;"></span></div><div class="stack-value">6%</div><div class="stack-extra">729 人</div></div>
+            </div>
+          </div>
         </div>
       </section>
     </div>
@@ -1203,7 +1395,6 @@
             <div class="table-actions">
               <button class="ghost-btn">导出报表</button>
               <button class="ghost-btn">重置筛选</button>
-              <button class="ghost-btn">查看大额用户</button>
             </div>
           </div>
           <div class="table-wrap">
@@ -1226,14 +1417,13 @@
                   <th>合约未实现盈亏</th>
                   <th>KYC 用户数</th>
                   <th>合约手续费</th>
-                  <th>用户画像</th>
                 </tr>
               </thead>
               <tbody>
-                <tr><td>2026-06-30</td><td>充提活跃用户群</td><td class="green">12,836,420.18</td><td class="red">4,216,380.14</td><td class="green">8,620,040.04</td><td>58,920,000</td><td>8,426</td><td>62,184.32</td><td>81,246,000</td><td>5,142</td><td>4.6 天</td><td class="green">+1,248,620</td><td class="green">+862,144</td><td class="blue">+386,476</td><td>6,214</td><td>126,308.22</td><td><span class="tag blue">净入金偏好</span></td></tr>
-                <tr><td>2026-06-30</td><td>现货交易用户群</td><td>8,214,502.00</td><td>2,615,204.36</td><td class="green">5,599,297.64</td><td class="blue">142,804,180</td><td>18,264</td><td class="green">186,240.44</td><td>92,518,000</td><td>6,418</td><td>11.3 天</td><td class="green">+3,412,860</td><td class="green">+2,628,520</td><td class="blue">+784,340</td><td>12,684</td><td>138,402.66</td><td><span class="tag green">现货偏好</span></td></tr>
-                <tr><td>2026-06-30</td><td>合约高活跃用户群</td><td>5,280,160.42</td><td>6,824,980.60</td><td class="red">-1,544,820.18</td><td>94,628,400</td><td>12,942</td><td>88,402.58</td><td class="purple">268,420,000</td><td>14,826</td><td>8.8 小时</td><td class="red">-2,184,320</td><td class="green">+1,116,480</td><td class="red">-3,300,800</td><td>9,524</td><td class="green">328,860.92</td><td><span class="tag purple">高杠杆偏好</span></td></tr>
-                <tr><td>2026-06-30</td><td>代理团队用户群</td><td>16,402,840.00</td><td>9,518,420.24</td><td class="green">6,884,419.76</td><td>126,480,200</td><td>10,604</td><td>106,804.40</td><td>218,620,000</td><td>8,942</td><td>14.2 小时</td><td class="green">+6,948,220</td><td class="green">+4,126,380</td><td class="yellow">+2,821,840</td><td>11,208</td><td>426,240.30</td><td><span class="tag orange">代理体系</span></td></tr>
+                <tr><td>2026-06-30</td><td>充提活跃用户群</td><td class="green">12,836,420.18</td><td class="red">4,216,380.14</td><td class="green">8,620,040.04</td><td>58,920,000</td><td>8,426</td><td>62,184.32</td><td>81,246,000</td><td>5,142</td><td>4.6 天</td><td class="green">+1,248,620</td><td class="green">+862,144</td><td class="blue">+386,476</td><td>6,214</td><td>126,308.22</td></tr>
+                <tr><td>2026-06-30</td><td>现货交易用户群</td><td>8,214,502.00</td><td>2,615,204.36</td><td class="green">5,599,297.64</td><td class="blue">142,804,180</td><td>18,264</td><td class="green">186,240.44</td><td>92,518,000</td><td>6,418</td><td>11.3 天</td><td class="green">+3,412,860</td><td class="green">+2,628,520</td><td class="blue">+784,340</td><td>12,684</td><td>138,402.66</td></tr>
+                <tr><td>2026-06-30</td><td>合约高活跃用户群</td><td>5,280,160.42</td><td>6,824,980.60</td><td class="red">-1,544,820.18</td><td>94,628,400</td><td>12,942</td><td>88,402.58</td><td class="purple">268,420,000</td><td>14,826</td><td>8.8 小时</td><td class="red">-2,184,320</td><td class="green">+1,116,480</td><td class="red">-3,300,800</td><td>9,524</td><td class="green">328,860.92</td></tr>
+                <tr><td>2026-06-30</td><td>代理团队用户群</td><td>16,402,840.00</td><td>9,518,420.24</td><td class="green">6,884,419.76</td><td>126,480,200</td><td>10,604</td><td>106,804.40</td><td>218,620,000</td><td>8,942</td><td>14.2 小时</td><td class="green">+6,948,220</td><td class="green">+4,126,380</td><td class="yellow">+2,821,840</td><td>11,208</td><td>426,240.30</td></tr>
               </tbody>
             </table>
           </div>
@@ -1241,6 +1431,202 @@
       </section>
     </div>
       </main>
+      <aside class="spec-sidebar">
+        <h2 class="spec-sidebar__title">右侧口径解释</h2>
+        <p class="spec-sidebar__desc">用于直接提给开发。左侧切换页面时，右侧同步显示当前页的指标定义、计算规则和分层区间。</p>
+
+        <div class="card scale-guide">
+          <h3 class="scale-guide__title">曲线图时间刻度说明</h3>
+          <div class="scale-guide__grid">
+            <div class="scale-guide__item"><strong>小时</strong><span>按小时展示，固定显示最近 30 个小时刻度。</span></div>
+            <div class="scale-guide__item"><strong>日</strong><span>按天展示，固定显示最近 30 个自然日刻度。</span></div>
+            <div class="scale-guide__item"><strong>周</strong><span>按周展示，固定显示最近 30 个自然周刻度。</span></div>
+            <div class="scale-guide__item"><strong>月</strong><span>按月展示，固定显示最近 30 个自然月刻度。</span></div>
+            <div class="scale-guide__item"><strong>总</strong><span>总口径趋势按月展示，固定显示最近 30 个月刻度。</span></div>
+            <div class="scale-guide__item"><strong>自由筛选日期</strong><span>自由筛选日期下，每个自然日生成 1 个数据点。自然日总数 N = 结束日期 - 开始日期 + 1。若 N 小于等于 30，X 轴展示全部 N 个日期标签；若 N 大于 30，从 30 开始依次递增查找刻度数 T，直到 N ÷ T 为整数为止，即满足 N mod T = 0。确定 T 后，标签间隔天数 S = N ÷ T。X 轴按每隔 S 个自然日展示 1 个日期标签。示例：若 N = 1038，则先用 30 试算，1038 ÷ 30 不能整除；再依次用 31、32、33 继续试算，直到 T = 173 时 1038 ÷ 173 = 6 为整数，因此该区间取 173 个日期标签，每个标签间隔 6 个自然日。所有未显示标签的自然日仍保留数据点并参与曲线绘制。</span></div>
+          </div>
+        </div>
+
+        <div class="spec-page active" data-spec-page="overview">
+          <div class="spec-block">
+            <h3>用户核心指标</h3>
+            <div class="spec-list">
+              <div class="spec-item"><strong>累计注册用户</strong><span>统计截止时点平台累计注册成功的去重用户数。</span></div>
+              <div class="spec-item"><strong>普通用户数</strong><span>统计截止时点，上级邀请链中不存在母合伙人用户，或无上级邀请人的去重用户数。</span></div>
+              <div class="spec-item"><strong>代理团队用户数</strong><span>统计截止时点，上级邀请链中存在至少 1 个母合伙人用户的去重用户数。</span></div>
+              <div class="spec-item"><strong>累计 KYC 用户数</strong><span>统计截止时点，KYC 审核通过的累计去重用户数。</span></div>
+              <div class="spec-item"><strong>现货交易用户数</strong><span>统计周期内发生过至少 1 次现货成交的去重用户数。</span></div>
+              <div class="spec-item"><strong>合约总交易用户</strong><span>统计周期内发生过至少 1 次合约成交的去重用户数，归属于用户核心指标。</span></div>
+              <div class="spec-item"><strong>平台总资产</strong><span>统计截止时点平台内全部用户资产按统一汇率折算为 USDT 后的汇总金额。</span></div>
+              <div class="spec-item"><strong>平台总资金大于 50U 用户数</strong><span>统计截止时点，用户平台总资产折算为 USDT 后大于 50 的去重用户数。</span></div>
+              <div class="spec-item"><strong>本期充值用户数</strong><span>统计周期内发生过至少 1 笔充值成功的去重用户数。</span></div>
+              <div class="spec-item"><strong>本期提现用户数</strong><span>统计周期内发生过至少 1 笔提现成功的去重用户数。</span></div>
+            </div>
+          </div>
+          <div class="spec-block">
+            <h3>用户转化与终端统计</h3>
+            <div class="spec-list">
+              <div class="spec-item"><strong>本期自然注册数</strong><span>统计周期内注册成功且没有邀请码、没有邀请关系的去重用户数。</span></div>
+              <div class="spec-item"><strong>本期邀请注册数</strong><span>统计周期内注册成功且存在邀请码或邀请关系的去重用户数。</span></div>
+              <div class="spec-item"><strong>本期登录用户数</strong><span>统计周期内至少登录过 1 次平台的去重用户数。</span></div>
+              <div class="spec-item"><strong>首充用户数</strong><span>统计周期内首次完成充值成功的去重用户数。</span></div>
+              <div class="spec-item"><strong>首充金额</strong><span>统计周期内首次充值成功订单对应的金额汇总，统一折算为 USDT。</span></div>
+              <div class="spec-item"><strong>WEB 用户数</strong><span>统计周期内通过 Web 端登录的去重用户数。</span></div>
+              <div class="spec-item"><strong>iOS 用户数</strong><span>统计周期内通过 iOS 客户端登录的去重用户数。</span></div>
+              <div class="spec-item"><strong>安卓用户数</strong><span>统计周期内通过 Android 客户端登录的去重用户数。</span></div>
+            </div>
+          </div>
+          <div class="spec-block">
+            <h3>用户趋势分析</h3>
+            <div class="spec-list">
+              <div class="spec-item"><strong>普通用户 / 代理团队用户趋势</strong><span>按当前筛选时间口径统计每个时间点内普通用户数和代理团队用户数的变化趋势。普通用户定义为上级邀请链中不存在母合伙人用户的用户，无上级邀请人的用户也归入普通用户；代理团队用户定义为上级邀请链中存在至少 1 个母合伙人用户的用户。各时间点内用户按用户唯一身份去重统计。</span></div>
+              <div class="spec-item"><strong>自然注册 / 邀请注册 / 登录 / 首充趋势</strong><span>按当前筛选时间口径统计每个时间点内自然注册用户数、邀请注册用户数、登录用户数和首充用户数的变化趋势。自然注册指没有邀请码且没有邀请关系的注册用户；邀请注册指存在邀请码或邀请关系的注册用户；登录用户和首充用户均在各自时间点内按用户唯一身份去重统计。</span></div>
+              <div class="spec-item"><strong>WEB / iOS / 安卓用户趋势</strong><span>按当前筛选时间口径统计每个时间点内 WEB、iOS、安卓三个终端的登录用户变化趋势。各终端分别按用户唯一身份去重统计，同一用户在同一时间点可同时计入多个终端。</span></div>
+              <div class="spec-item"><strong>合约总交易用户 / 盈利用户 / 离场客户趋势</strong><span>按当前筛选时间口径统计每个时间点内合约总交易用户、合约盈利用户和离场客户的变化趋势。合约总交易用户指该时间点内发生过至少 1 次合约成交的去重用户；盈利用户指该时间点内合约总盈亏大于 0 的去重用户；离场客户指历史开过仓、当前无持仓且平台总资产小于 1U 的用户。</span></div>
+            </div>
+          </div>
+          <div class="spec-block">
+            <h3>用户召回分析</h3>
+            <div class="spec-list">
+              <div class="spec-item"><strong>大于 50U 三天未登录且无持仓用户分析</strong><span>同时满足平台总资金大于 50U、连续 3 天未登录、且无现货持仓、合约持仓、理财持仓。</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="spec-page" data-spec-page="spot">
+          <div class="spec-block">
+            <h3>资金与交易核心指标</h3>
+            <div class="spec-list">
+              <div class="spec-item"><strong>本期充值金额</strong><span>统计周期内充值成功金额之和，统一折算为 USDT。</span></div>
+              <div class="spec-item"><strong>本期提现金额</strong><span>统计周期内提现成功金额之和，统一折算为 USDT。</span></div>
+              <div class="spec-item"><strong>净入金额</strong><span>本期充值金额减去本期提现金额。</span></div>
+              <div class="spec-item"><strong>现货成交额</strong><span>统计周期内现货成交金额之和，统一折算为 USDT。</span></div>
+              <div class="spec-item"><strong>现货手续费</strong><span>统计周期内现货成交产生的手续费之和。</span></div>
+              <div class="spec-item"><strong>现货交易用户数</strong><span>统计周期内发生至少 1 次现货成交的去重用户数。</span></div>
+              <div class="spec-item"><strong>本期充值用户数</strong><span>统计周期内发生充值成功行为的去重用户数。</span></div>
+              <div class="spec-item"><strong>本期提现用户数</strong><span>统计周期内发生提现成功行为的去重用户数。</span></div>
+              <div class="spec-item"><strong>首充用户数</strong><span>统计周期内首次完成充值成功的去重用户数。</span></div>
+              <div class="spec-item"><strong>首充金额</strong><span>统计周期内首充订单对应的充值成功金额之和。</span></div>
+            </div>
+          </div>
+          <div class="spec-block">
+            <h3>资金与现货趋势</h3>
+            <div class="spec-list">
+              <div class="spec-item"><strong>充值 / 提现 / 净入金额趋势</strong><span>按当前筛选时间口径统计每个时间点内充值成功金额、提现成功金额和净入金额。净入金额等于该时间点充值金额减提现金额。</span></div>
+              <div class="spec-item"><strong>充值 / 提现用户趋势</strong><span>按当前筛选时间口径统计每个时间点内发生充值成功的去重用户数和发生提现成功的去重用户数。</span></div>
+              <div class="spec-item"><strong>现货成交额 / 手续费趋势</strong><span>按当前筛选时间口径统计每个时间点内现货成交额和现货手续费金额。</span></div>
+              <div class="spec-item"><strong>现货 TOP3 币对偏好趋势</strong><span>按当前筛选时间口径统计每个时间点内现货成交额动态排名前 3 的币对占比，剩余币对统一归并为其他币对。TOP1、TOP2、TOP3、其他币对占比均以各时间点全部现货成交额为分母计算。</span></div>
+            </div>
+          </div>
+          <div class="spec-block">
+            <h3>现货用户画像分析</h3>
+            <div class="spec-list">
+              <div class="spec-item"><strong>现货交易额分层分析</strong><span>按用户在统计周期内的现货成交额分层，分为 0至1000U、1000至10000U、10000至100000U、100000U以上。</span></div>
+              <div class="spec-item"><strong>现货交易次数分层分析</strong><span>统计周期内现货成交 1 笔记为首次交易用户，成交 2 笔记为二次交易用户，成交 3 笔及以上记为多次交易用户。</span></div>
+              <div class="spec-item"><strong>现货交易币对偏好</strong><span>按统计周期内现货成交额动态排序取前 3 个币对，剩余币对统一归并为其他币对，稳定币本身不单独展示为交易币对。</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="spec-page" data-spec-page="futures">
+          <div class="spec-block">
+            <h3>资金与交易核心指标</h3>
+            <div class="spec-list">
+              <div class="spec-item"><strong>合约成交额</strong><span>统计周期内合约成交金额之和，按统一规则折算为 USDT。</span></div>
+              <div class="spec-item"><strong>合约手续费</strong><span>统计周期内合约开仓、平仓产生的手续费之和。</span></div>
+              <div class="spec-item"><strong>资金费收入</strong><span>统计周期内合约资金费净收入。</span></div>
+              <div class="spec-item"><strong>用户合约总盈亏</strong><span>统计截止时点合约已实现盈亏与合约未实现盈亏之和，仅采用合约口径。</span></div>
+              <div class="spec-item"><strong>用户已实现盈亏</strong><span>统计周期内因合约平仓实际确认的累计盈亏金额。</span></div>
+              <div class="spec-item"><strong>用户未实现盈亏</strong><span>统计截止时点合约当前持仓对应的浮动盈亏金额。</span></div>
+              <div class="spec-item"><strong>用户当前持仓金额</strong><span>统计截止时点全部合约未平仓仓位名义价值之和。</span></div>
+              <div class="spec-item"><strong>用户总开仓金额</strong><span>统计周期内全部合约开仓成交金额之和。</span></div>
+              <div class="spec-item"><strong>用户总平仓金额</strong><span>统计周期内全部合约平仓成交金额之和。</span></div>
+              <div class="spec-item"><strong>合约盈利用户</strong><span>统计截止时点，已实现盈亏与未实现盈亏合计为正的去重用户数。</span></div>
+            </div>
+          </div>
+          <div class="spec-block">
+            <h3>合约趋势分析</h3>
+            <div class="spec-list">
+              <div class="spec-item"><strong>合约成交额 / 手续费 / 资金费趋势</strong><span>按当前筛选时间口径统计每个时间点内合约成交额、合约手续费金额和资金费净收入。</span></div>
+              <div class="spec-item"><strong>合约总交易用户 / 盈利用户 / 离场客户趋势</strong><span>按当前筛选时间口径统计每个时间点内合约总交易用户、合约盈利用户和合约离场客户的去重用户数。离场客户定义为历史开过仓、当前无持仓且平台总资产小于 1U 的用户。</span></div>
+              <div class="spec-item"><strong>合约总盈亏 / 已实现盈亏 / 未实现盈亏趋势</strong><span>按当前筛选时间口径统计每个时间点内合约总盈亏、合约已实现盈亏和合约未实现盈亏金额，三项均只采用合约口径。</span></div>
+              <div class="spec-item"><strong>合约当前持仓 / 总开仓 / 总平仓金额趋势</strong><span>按当前筛选时间口径统计每个时间点内合约当前持仓金额、总开仓金额和总平仓金额。</span></div>
+              <div class="spec-item"><strong>合约高频换手 / 强平趋势</strong><span>按当前筛选时间口径统计高频换手用户数、强平用户数和强平订单数。高频换手用户定义为统计周期内合约成交笔数大于等于 20 笔的去重用户；强平用户数为发生强平的去重用户数；强平订单数为强平订单总笔数。</span></div>
+              <div class="spec-item"><strong>爆仓后现货余额低于 10U 再充值用户趋势</strong><span>按当前筛选时间口径统计满足“合约爆仓后现货余额低于 10U，后续再次充值大于等于 10U”的用户群在各时间点内的回流充值用户数、回流充值金额和回流后再开仓用户数。</span></div>
+            </div>
+          </div>
+          <div class="spec-block">
+            <h3>合约用户画像分析</h3>
+            <div class="spec-list">
+              <div class="spec-item"><strong>合约交易用户分析</strong><span>展示合约总交易用户、合约盈利用户、合约离场客户三项指标。合约离场客户定义为历史开过仓、当前无持仓且平台总资产小于 1U 的用户。</span></div>
+              <div class="spec-item"><strong>合约成交额分层分析</strong><span>按统计周期内用户合约成交额分层，分层区间为 0至10000U、10000至100000U、100000至1000000U、1000000U以上。</span></div>
+              <div class="spec-item"><strong>合约交易币对偏好</strong><span>按统计周期内合约成交额动态排序取前 3 个币对，剩余币对统一归并为其他币对。</span></div>
+              <div class="spec-item"><strong>合约持仓时间分析</strong><span>按用户当前合约持仓的最长持仓时长分层，分层区间为 0至5分钟、5分钟至1小时、1至4小时、4至24小时、24小时以上。</span></div>
+              <div class="spec-item"><strong>持仓金额分层</strong><span>固定区间为 0至1000U、1000至10000U、10000至100000U、100000至1000000U、1000000至10000000U、10000000U以上。</span></div>
+              <div class="spec-item"><strong>合约持仓金额分层盈利率分析</strong><span>在每个持仓金额档位内，统计盈利用户占该档位总用户数的比例。</span></div>
+              <div class="spec-item"><strong>合约持仓金额分层盈利额分析</strong><span>在每个持仓金额档位内，分别统计已实现盈利额、未实现盈利额与合计盈利额，合计盈利额由已实现盈利额与未实现盈利额相加得到。</span></div>
+              <div class="spec-item"><strong>杠杆分层</strong><span>按统计周期内用户全部合约开仓订单的成交额加权平均杠杆倍数分层，固定区间为 10至24倍、25至49倍、50至74倍、75至99倍、100至124倍、125倍及以上。</span></div>
+              <div class="spec-item"><strong>合约杠杆分层盈利率分析</strong><span>在每个杠杆区间内，统计盈利用户占该档位总用户数的比例。</span></div>
+              <div class="spec-item"><strong>合约杠杆分层盈利额分析</strong><span>在每个杠杆区间内，分别统计已实现盈利额、未实现盈利额与合计盈利额，合计盈利额由已实现盈利额与未实现盈利额相加得到。</span></div>
+              <div class="spec-item"><strong>代理用户定义</strong><span>所有代理用户统一定义为：上级邀请链中存在至少 1 个母合伙人用户。</span></div>
+              <div class="spec-item"><strong>代理用户盈利率分层分析</strong><span>按代理用户的合约总盈亏相对总开仓金额形成的盈利率进行分层；没有开仓金额的用户不进入该分析。</span></div>
+              <div class="spec-item"><strong>代理用户盈利金额分层分析</strong><span>按代理用户的合约总盈亏金额分层，最低档为负100万U以下，最高档为正100万U及以上。</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="spec-page" data-spec-page="revenue">
+          <div class="spec-block">
+            <h3>手续费与风险暴露指标</h3>
+            <div class="spec-list">
+              <div class="spec-item"><strong>现货手续费</strong><span>统计周期内现货成交产生的手续费之和。</span></div>
+              <div class="spec-item"><strong>合约手续费</strong><span>统计周期内合约开仓、平仓产生的手续费之和。</span></div>
+              <div class="spec-item"><strong>提现手续费</strong><span>统计周期内提现成功订单产生的手续费之和。</span></div>
+              <div class="spec-item"><strong>强平用户数</strong><span>统计周期内发生强平的去重用户数。</span></div>
+              <div class="spec-item"><strong>强平订单数</strong><span>统计周期内合约强制平仓订单总笔数。</span></div>
+            </div>
+          </div>
+          <div class="spec-block">
+            <h3>返佣与平台收入指标</h3>
+            <div class="spec-list">
+              <div class="spec-item"><strong>现货返佣手续费金额比</strong><span>统计周期内现货返佣总金额占现货手续费金额的比例。</span></div>
+              <div class="spec-item"><strong>现货直客返佣金额</strong><span>统计周期内现货业务下的直客返佣金额之和。</span></div>
+              <div class="spec-item"><strong>现货代理返佣金额</strong><span>统计周期内现货业务下的代理返佣金额之和。</span></div>
+              <div class="spec-item"><strong>现货平台纯手续费上收</strong><span>统计周期内现货手续费扣除全部现货返佣后的净收入。</span></div>
+              <div class="spec-item"><strong>合约返佣手续费金额比</strong><span>统计周期内合约返佣总金额占合约手续费金额的比例。</span></div>
+              <div class="spec-item"><strong>合约直客返佣金额</strong><span>统计周期内合约业务下的直客返佣金额之和。</span></div>
+              <div class="spec-item"><strong>合约代理返佣金额</strong><span>统计周期内合约业务下的代理返佣金额之和。</span></div>
+              <div class="spec-item"><strong>合约平台纯手续费上收</strong><span>统计周期内合约手续费扣除全部合约返佣后的净收入。</span></div>
+              <div class="spec-item"><strong>代理用户合约已实现亏损</strong><span>统计周期内代理团队用户在合约业务中已实际确认的亏损金额之和，仅统计亏损部分，并按亏损绝对值汇总展示。</span></div>
+              <div class="spec-item"><strong>代理用户合约未实现亏损</strong><span>统计截止时点代理团队用户在合约持仓中的浮动亏损金额之和，仅统计亏损部分，并按亏损绝对值汇总展示。</span></div>
+            </div>
+          </div>
+          <div class="spec-block">
+            <h3>收入趋势分析</h3>
+            <div class="spec-list">
+              <div class="spec-item"><strong>现货返佣 / 平台纯手续费上收趋势</strong><span>按当前筛选时间口径统计每个时间点内现货直客返佣、现货代理返佣和现货平台纯手续费上收金额。</span></div>
+              <div class="spec-item"><strong>合约返佣 / 平台纯手续费上收趋势</strong><span>按当前筛选时间口径统计每个时间点内合约直客返佣、合约代理返佣和合约平台纯手续费上收金额。</span></div>
+              <div class="spec-item"><strong>代理用户合约已实现亏损 / 未实现亏损趋势</strong><span>按当前筛选时间口径统计每个时间点内代理团队用户合约已实现亏损金额和未实现亏损金额。</span></div>
+            </div>
+          </div>
+          <div class="spec-block">
+            <h3>页面四说明</h3>
+            <div class="spec-list">
+              <div class="spec-item"><strong>页面四说明</strong><span>页面四用于集中展示手续费、返佣、平台纯手续费上收、代理团队亏损趋势和经营明细表，是收入与经营复盘的统一页面，不再拆散到其他页面重复展示。</span></div>
+            </div>
+          </div>
+          <div class="spec-block">
+            <h3>明细报表</h3>
+            <div class="spec-list">
+              <div class="spec-item"><strong>日期</strong><span>展示当前行统计周期的结束日期；若查询口径为小时、日、周、月、总，均取该统计桶的结束时间对应日期。</span></div>
+              <div class="spec-item"><strong>分析维度</strong><span>当前行对应的经营用户群或分析对象。当前原型示例固定为：充提活跃用户群、现货交易用户群、合约高活跃用户群、代理团队用户群。</span></div>
+              <div class="spec-item"><strong>资金与交易展示内容</strong><span>明细表用于横向对比不同经营人群的充币、提币、净入、现货成交、合约成交、用户数、手续费、合约盈亏和 KYC 规模。</span></div>
+              <div class="spec-item"><strong>平均持仓时长</strong><span>按该分析维度下统计周期内已平仓合约订单的平均持仓时长展示。</span></div>
+              <div class="spec-item"><strong>合约盈亏展示</strong><span>合约总盈亏、合约已实现盈亏、合约未实现盈亏统一采用合约口径，不与现货混用。</span></div>
+            </div>
+          </div>
+        </div>
+      </aside>
     </div>
   </div>
 
@@ -1248,6 +1634,7 @@
     (function () {
       const buttons = Array.from(document.querySelectorAll('.page-switch'));
       const pages = Array.from(document.querySelectorAll('.view-page'));
+      const specPages = Array.from(document.querySelectorAll('.spec-page'));
 
       function activate(pageId) {
         buttons.forEach((button) => {
@@ -1255,6 +1642,9 @@
         });
         pages.forEach((page) => {
           page.classList.toggle('active', page.id === pageId);
+        });
+        specPages.forEach((page) => {
+          page.classList.toggle('active', page.dataset.specPage === pageId);
         });
         location.hash = pageId;
         window.scrollTo({ top: 0, behavior: 'smooth' });
