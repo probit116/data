@@ -916,11 +916,11 @@
               <button class="cycle-chip">日</button>
               <button class="cycle-chip">周</button>
               <button class="cycle-chip">月</button>
-              <button class="cycle-chip active">总</button>
+              <button class="cycle-chip active">累计</button>
             </div>
           </div>
         </div>
-        <div class="toolbar-note">当前统计口径：总，时间范围：2026-06-01 至 2026-06-30。下方通过页签切换四个逻辑页面，避免长页滚动过深。</div>
+        <div class="toolbar-note">当前统计口径：累计，时间范围：2026-06-01 至 2026-06-30。下方通过页签切换四个逻辑页面，避免长页滚动过深。</div>
       </div>
     </section>
 
@@ -952,7 +952,7 @@
             <div class="metric-card"><div class="metric-card__label">累计 KYC 用户数</div><div class="metric-card__value green">126,584</div><div class="metric-card__sub">KYC 通过率 67.9%</div></div>
             <div class="metric-card"><div class="metric-card__label">现货交易用户数</div><div class="metric-card__value">42,318</div><div class="metric-card__sub">活跃现货用户环比 +8.4%</div></div>
             <div class="metric-card"><div class="metric-card__label">合约总交易用户</div><div class="metric-card__value purple">29,614</div><div class="metric-card__sub">统计周期内发生过合约交易的去重用户</div></div>
-            <div class="metric-card"><div class="metric-card__label">平台总资产</div><div class="metric-card__value green">168,245,920</div><div class="metric-card__sub">USDT 折算口径</div></div>
+            <div class="metric-card"><div class="metric-card__label">平台总资产</div><div class="metric-card__value green">168,245,920</div><div class="metric-card__sub">USDT 口径</div></div>
             <div class="metric-card"><div class="metric-card__label">平台总资金大于50U用户数</div><div class="metric-card__value yellow">48,672</div><div class="metric-card__sub">统计截止时点平台总资产大于 50U</div></div>
             <div class="metric-card"><div class="metric-card__label">本期充值用户数</div><div class="metric-card__value blue">18,246</div><div class="metric-card__sub">净入金用户占比 61.8%</div></div>
             <div class="metric-card"><div class="metric-card__label">本期提现用户数</div><div class="metric-card__value red">11,538</div><div class="metric-card__sub">成功提现去重用户</div></div>
@@ -1169,7 +1169,7 @@
           </div>
           <div class="chart-card">
             <h3 class="chart-title">合约总交易用户 / 盈利用户 / 离场客户趋势</h3>
-            <p class="chart-desc">离场客户定义为开过仓、当前无持仓且用户平台总资产小于 1 的用户。</p>
+            <p class="chart-desc">离场客户定义为开过仓、当前无持仓且用户平台总资产小于 1U 的用户。</p>
             <div class="legend"><span><i style="background:#2d8cf0"></i>总交易用户</span><span><i style="background:#52c41a"></i>盈利用户</span><span><i style="background:#ff4d4f"></i>离场客户</span></div>
             <svg class="svg-chart" viewBox="0 0 560 220" preserveAspectRatio="none"><g stroke="rgba(90,113,145,0.14)" stroke-width="1"><line x1="42" y1="28" x2="520" y2="28"></line><line x1="42" y1="72" x2="520" y2="72"></line><line x1="42" y1="116" x2="520" y2="116"></line><line x1="42" y1="160" x2="520" y2="160"></line><line x1="42" y1="204" x2="520" y2="204"></line></g><polyline points="42,168 122,162 202,154 282,146 362,136 442,126 520,118" fill="none" stroke="#2d8cf0" stroke-width="4"></polyline><polyline points="42,188 122,182 202,176 282,168 362,162 442,154 520,148" fill="none" stroke="#52c41a" stroke-width="4"></polyline><polyline points="42,198 122,194 202,190 282,186 362,182 442,176 520,170" fill="none" stroke="#ff4d4f" stroke-width="4"></polyline></svg>
           </div>
@@ -1186,14 +1186,14 @@
             <svg class="svg-chart" viewBox="0 0 560 220" preserveAspectRatio="none"><g stroke="rgba(90,113,145,0.14)" stroke-width="1"><line x1="42" y1="28" x2="520" y2="28"></line><line x1="42" y1="72" x2="520" y2="72"></line><line x1="42" y1="116" x2="520" y2="116"></line><line x1="42" y1="160" x2="520" y2="160"></line><line x1="42" y1="204" x2="520" y2="204"></line></g><polyline points="42,192 122,186 202,180 282,172 362,164 442,156 520,146" fill="none" stroke="#ff4d4f" stroke-width="4"></polyline><polyline points="42,176 122,168 202,162 282,152 362,142 442,132 520,124" fill="none" stroke="#2d8cf0" stroke-width="4"></polyline><polyline points="42,182 122,176 202,170 282,162 362,152 442,144 520,136" fill="none" stroke="#7a5af8" stroke-width="4"></polyline></svg>
           </div>
           <div class="chart-card">
-            <h3 class="chart-title">合约高频换手 / 强平趋势</h3>
-            <p class="chart-desc">强平用户数、强平订单数与高频换手用户集中展示，高频换手仅保留在合约页。</p>
-            <div class="legend"><span><i style="background:#13c2c2"></i>高频换手用户</span><span><i style="background:#ff4d4f"></i>强平用户数</span><span><i style="background:#faad14"></i>强平订单数</span></div>
-            <svg class="svg-chart" viewBox="0 0 560 220" preserveAspectRatio="none"><g stroke="rgba(90,113,145,0.14)" stroke-width="1"><line x1="42" y1="28" x2="520" y2="28"></line><line x1="42" y1="72" x2="520" y2="72"></line><line x1="42" y1="116" x2="520" y2="116"></line><line x1="42" y1="160" x2="520" y2="160"></line><line x1="42" y1="204" x2="520" y2="204"></line></g><polyline points="42,188 122,182 202,176 282,170 362,162 442,154 520,146" fill="none" stroke="#13c2c2" stroke-width="4"></polyline><polyline points="42,198 122,194 202,188 282,182 362,174 442,168 520,162" fill="none" stroke="#ff4d4f" stroke-width="4"></polyline><polyline points="42,192 122,188 202,182 282,176 362,170 442,164 520,156" fill="none" stroke="#faad14" stroke-width="4"></polyline></svg>
+            <h3 class="chart-title">合约高频换手 / 强平单趋势</h3>
+            <p class="chart-desc">强平指标仅保留强平单，与高频换手用户集中展示，高频换手仅保留在合约页。</p>
+            <div class="legend"><span><i style="background:#13c2c2"></i>高频换手用户</span><span><i style="background:#ff4d4f"></i>强平单</span></div>
+            <svg class="svg-chart" viewBox="0 0 560 220" preserveAspectRatio="none"><g stroke="rgba(90,113,145,0.14)" stroke-width="1"><line x1="42" y1="28" x2="520" y2="28"></line><line x1="42" y1="72" x2="520" y2="72"></line><line x1="42" y1="116" x2="520" y2="116"></line><line x1="42" y1="160" x2="520" y2="160"></line><line x1="42" y1="204" x2="520" y2="204"></line></g><polyline points="42,188 122,182 202,176 282,170 362,162 442,154 520,146" fill="none" stroke="#13c2c2" stroke-width="4"></polyline><polyline points="42,198 122,194 202,188 282,182 362,174 442,168 520,162" fill="none" stroke="#ff4d4f" stroke-width="4"></polyline></svg>
           </div>
           <div class="chart-card">
-            <h3 class="chart-title">爆仓后现货余额低于 10U 再充值用户趋势</h3>
-            <p class="chart-desc">观察爆仓后低余额回流用户的充值与再次开仓情况。</p>
+            <h3 class="chart-title">强平后现货余额低于 10U 再充值用户趋势</h3>
+            <p class="chart-desc">观察强平后低余额回流用户的充值与再次开仓情况。</p>
             <div class="legend"><span><i style="background:#2d8cf0"></i>回流充值用户数</span><span><i style="background:#faad14"></i>回流充值金额</span><span><i style="background:#7a5af8"></i>回流后再开仓用户数</span></div>
             <svg class="svg-chart" viewBox="0 0 560 220" preserveAspectRatio="none"><g stroke="rgba(90,113,145,0.14)" stroke-width="1"><line x1="42" y1="28" x2="520" y2="28"></line><line x1="42" y1="72" x2="520" y2="72"></line><line x1="42" y1="116" x2="520" y2="116"></line><line x1="42" y1="160" x2="520" y2="160"></line><line x1="42" y1="204" x2="520" y2="204"></line></g><polyline points="42,198 122,190 202,182 282,172 362,164 442,152 520,142" fill="none" stroke="#2d8cf0" stroke-width="4"></polyline><polyline points="42,188 122,182 202,174 282,166 362,156 442,148 520,138" fill="none" stroke="#faad14" stroke-width="4"></polyline><polyline points="42,204 122,198 202,194 282,188 362,182 442,176 520,168" fill="none" stroke="#7a5af8" stroke-width="4"></polyline></svg>
           </div>
@@ -1362,8 +1362,7 @@
             <div class="metric-card"><div class="metric-card__label">现货手续费</div><div class="metric-card__value yellow">524,280.40</div><div class="metric-card__sub">现货手续费收入</div></div>
             <div class="metric-card"><div class="metric-card__label">合约手续费</div><div class="metric-card__value yellow">1,382,240.66</div><div class="metric-card__sub">合约手续费收入</div></div>
             <div class="metric-card"><div class="metric-card__label">提现手续费</div><div class="metric-card__value">82,640.18</div><div class="metric-card__sub">提现业务手续费</div></div>
-            <div class="metric-card"><div class="metric-card__label">强平用户数</div><div class="metric-card__value red">3,258</div><div class="metric-card__sub">发生强平的去重用户</div></div>
-            <div class="metric-card"><div class="metric-card__label">强平订单数</div><div class="metric-card__value red">8,944</div><div class="metric-card__sub">强平订单总笔数</div></div>
+            <div class="metric-card"><div class="metric-card__label">强平单</div><div class="metric-card__value red">8,944</div><div class="metric-card__sub">强制平仓订单笔数</div></div>
           </div>
         </div>
 
@@ -1472,8 +1471,23 @@
             <div class="scale-guide__item"><strong>日</strong><span>按天展示，固定显示最近 30 个自然日刻度。</span></div>
             <div class="scale-guide__item"><strong>周</strong><span>按周展示，固定显示最近 30 个自然周刻度。</span></div>
             <div class="scale-guide__item"><strong>月</strong><span>按月展示，固定显示最近 30 个自然月刻度。</span></div>
-            <div class="scale-guide__item"><strong>总</strong><span>总口径趋势按月展示，固定显示最近 30 个月刻度。</span></div>
+            <div class="scale-guide__item"><strong>累计</strong><span>累计口径按月展示，取所有历史月份归档数据叠加当前月份未归档实时增量，固定显示最近 30 个月刻度。</span></div>
             <div class="scale-guide__item"><strong>自由筛选日期</strong><span>自由筛选日期下，每个自然日生成 1 个数据点。自然日总数 N = 结束日期 - 开始日期 + 1。若 N 小于等于 30，X 轴展示全部 N 个日期标签；若 N 大于 30，从 30 开始依次递增查找刻度数 T，直到 N ÷ T 为整数为止，即满足 N mod T = 0。确定 T 后，标签间隔天数 S = N ÷ T。X 轴按每隔 S 个自然日展示 1 个日期标签。示例：若 N = 1038，则先用 30 试算，1038 ÷ 30 不能整除；再依次用 31、32、33 继续试算，直到 T = 173 时 1038 ÷ 173 = 6 为整数，因此该区间取 173 个日期标签，每个标签间隔 6 个自然日。所有未显示标签的自然日仍保留数据点并参与曲线绘制。</span></div>
+          </div>
+        </div>
+
+        <div class="spec-block">
+          <h3>图中口径问题补充</h3>
+          <div class="spec-list">
+            <div class="spec-item"><strong>金额统计口径</strong><span>成交金额目前仅统计 USDT 口径，直接汇总展示，暂不做查询时实时折算。若后续接入其他币种，按用户资产落库时对应币种的实时现货 USDT 价格折合为 USDT；若该币种没有现货币对，不参与金额统计。</span></div>
+            <div class="spec-item"><strong>代理团队用户数口径补充</strong><span>代理团队用户数统计包含顶级代理用户（母合伙人用户），顶代也是代理。</span></div>
+            <div class="spec-item"><strong>统计口径与实时归档</strong><span>统计分为小时、日、周、月、累计五类口径。小时维度每小时固定归档当期完整数据；实时统计结果 = 已归档小时数据 + 当前未结束时段实时增量。日、周、月维度计算逻辑与小时保持一致，但不单独落库，初始化时以小时归档数据为准累加生成。累计口径取所有历史月份归档数据叠加当前月份未归档实时增量汇总得出，但不单独落库，初始化时以小时归档数据为准累加生成。</span></div>
+            <div class="spec-item"><strong>统计精度</strong><span>时间精度统一按毫秒级处理；小时口径分桶边界为整点小时（HH:00:00.000 至 HH:59:59.999），页面标签展示到小时即可。</span></div>
+            <div class="spec-item"><strong>充值相关国籍口径</strong><span>充值行为本身不记录来源 IP；涉及充值相关国籍趋势时，取用户在该时间点内最后一次登录成功日志对应的 IP 解析国籍归属作为该用户国籍。</span></div>
+            <div class="spec-item"><strong>现货币对成交额口径</strong><span>现货币对成交额按撮合成交记录计一次，不按买卖双方重复累加到同一币对。</span></div>
+            <div class="spec-item"><strong>白名单用户口径</strong><span>白名单用户全量过滤，不进入本报表任何指标统计与趋势展示。</span></div>
+            <div class="spec-item"><strong>做市用户口径</strong><span>做市用户全量过滤，不进入本报表任何指标统计与趋势展示。</span></div>
+            <div class="spec-item"><strong>强平指标口径</strong><span>强平相关指标仅保留 1 个：强平单。强平单指平台触发的强制平仓订单笔数。</span></div>
           </div>
         </div>
 
@@ -1482,14 +1496,18 @@
             <h3>用户核心指标</h3>
             <div class="spec-list">
               <div class="spec-item"><strong>累计注册用户</strong><span>统计截止时点平台累计注册成功的去重用户数。</span></div>
-              <div class="spec-item"><strong>普通用户数</strong><span>统计截止时点，上级邀请链中不存在母合伙人用户，或无上级邀请人的去重用户数。</span></div>
-              <div class="spec-item"><strong>代理团队用户数</strong><span>统计截止时点，上级邀请链中存在至少 1 个母合伙人用户的去重用户数。</span></div>
+              <div class="spec-item"><strong>本期新增注册用户数</strong><span>统计周期内注册成功的去重用户数（自然注册 + 邀请注册）。</span></div>
+              <div class="spec-item"><strong>普通用户数</strong><span>统计截止时点，不是母合伙人用户且其上级邀请链中不存在母合伙人用户的去重用户数。</span></div>
+              <div class="spec-item"><strong>代理团队用户数</strong><span>统计截止时点，母合伙人用户及其团队链路内用户的去重用户数。母合伙人用户为顶级代理用户；上级邀请链中存在母合伙人用户的用户也计入代理团队用户。</span></div>
               <div class="spec-item"><strong>累计 KYC 用户数</strong><span>统计截止时点，KYC 审核通过的累计去重用户数。</span></div>
+              <div class="spec-item"><strong>KYC 通过率</strong><span>统计截止时点累计 KYC 审核通过用户数 ÷ 累计注册用户数。</span></div>
               <div class="spec-item"><strong>现货交易用户数</strong><span>统计周期内发生过至少 1 次现货成交的去重用户数。</span></div>
+              <div class="spec-item"><strong>活跃现货用户环比</strong><span>（本期现货交易用户数 - 上一统计周期现货交易用户数）÷ 上一统计周期现货交易用户数。</span></div>
               <div class="spec-item"><strong>合约总交易用户</strong><span>统计周期内发生过至少 1 次合约成交的去重用户数，归属于用户核心指标。</span></div>
-              <div class="spec-item"><strong>平台总资产</strong><span>统计截止时点平台内全部用户资产按统一汇率折算为 USDT 后的汇总金额。</span></div>
-              <div class="spec-item"><strong>平台总资金大于 50U 用户数</strong><span>统计截止时点，用户平台总资产折算为 USDT 后大于 50 的去重用户数。</span></div>
+              <div class="spec-item"><strong>平台总资产</strong><span>统计截止时点平台内全部用户资产金额汇总，金额单位为 USDT；若后续接入其他币种，折合规则以金额统计口径为准。</span></div>
+              <div class="spec-item"><strong>平台总资金大于 50U 用户数</strong><span>统计截止时点，用户平台总资产金额大于 50U 的去重用户数。</span></div>
               <div class="spec-item"><strong>本期充值用户数</strong><span>统计周期内发生过至少 1 笔充值成功的去重用户数。</span></div>
+              <div class="spec-item"><strong>净入金用户占比</strong><span>统计周期内净入金（充值成功金额 - 提现成功金额）大于 0 的去重用户数 ÷ 本期充值用户数。</span></div>
               <div class="spec-item"><strong>本期提现用户数</strong><span>统计周期内发生过至少 1 笔提现成功的去重用户数。</span></div>
             </div>
           </div>
@@ -1500,7 +1518,7 @@
               <div class="spec-item"><strong>本期邀请注册数</strong><span>统计周期内注册成功且存在邀请码或邀请关系的去重用户数。</span></div>
               <div class="spec-item"><strong>本期登录用户数</strong><span>统计周期内至少登录过 1 次平台的去重用户数。</span></div>
               <div class="spec-item"><strong>首充用户数</strong><span>统计周期内首次完成充值成功的去重用户数。</span></div>
-              <div class="spec-item"><strong>首充金额</strong><span>统计周期内首次充值成功订单对应的金额汇总，统一折算为 USDT。</span></div>
+              <div class="spec-item"><strong>首充金额</strong><span>统计周期内首次充值成功订单对应的金额汇总，金额单位为 USDT；若后续接入其他币种，折合规则以金额统计口径为准。</span></div>
               <div class="spec-item"><strong>WEB 用户数</strong><span>统计周期内通过 Web 端登录的去重用户数。</span></div>
               <div class="spec-item"><strong>iOS 用户数</strong><span>统计周期内通过 iOS 客户端登录的去重用户数。</span></div>
               <div class="spec-item"><strong>安卓用户数</strong><span>统计周期内通过 Android 客户端登录的去重用户数。</span></div>
@@ -1509,7 +1527,7 @@
           <div class="spec-block">
             <h3>用户趋势分析</h3>
             <div class="spec-list">
-              <div class="spec-item"><strong>普通用户 / 代理团队用户趋势</strong><span>按当前筛选时间口径统计每个时间点内普通用户数和代理团队用户数的变化趋势。普通用户定义为上级邀请链中不存在母合伙人用户的用户，无上级邀请人的用户也归入普通用户；代理团队用户定义为上级邀请链中存在至少 1 个母合伙人用户的用户。各时间点内用户按用户唯一身份去重统计。</span></div>
+              <div class="spec-item"><strong>普通用户 / 代理团队用户趋势</strong><span>按当前筛选时间口径统计每个时间点内普通用户数和代理团队用户数的变化趋势。普通用户定义为不是母合伙人用户且其上级邀请链中不存在母合伙人用户的用户；代理团队用户定义为母合伙人用户及其团队链路内用户。各时间点内用户按用户唯一身份去重统计。</span></div>
               <div class="spec-item"><strong>自然注册 / 邀请注册 / 登录 / 首充趋势</strong><span>按当前筛选时间口径统计每个时间点内自然注册用户数、邀请注册用户数、登录用户数和首充用户数的变化趋势。自然注册指没有邀请码且没有邀请关系的注册用户；邀请注册指存在邀请码或邀请关系的注册用户；登录用户和首充用户均在各自时间点内按用户唯一身份去重统计。</span></div>
               <div class="spec-item"><strong>WEB / iOS / 安卓用户趋势</strong><span>按当前筛选时间口径统计每个时间点内 WEB、iOS、安卓三个终端的登录用户变化趋势。各终端分别按用户唯一身份去重统计，同一用户在同一时间点可同时计入多个终端。</span></div>
               <div class="spec-item"><strong>合约总交易用户 / 盈利用户 / 离场客户趋势</strong><span>按当前筛选时间口径统计每个时间点内合约总交易用户、合约盈利用户和离场客户的变化趋势。合约总交易用户指该时间点内发生过至少 1 次合约成交的去重用户；盈利用户指该时间点内合约总盈亏大于 0 的去重用户；离场客户指历史开过仓、当前无持仓且平台总资产小于 1U 的用户。</span></div>
@@ -1517,13 +1535,13 @@
               <div class="spec-item"><strong>用户登录 IP 国籍趋势</strong><span>按当前筛选时间口径统计每个时间点内登录成功的去重用户，并按该用户在该时间点内最后一次登录成功日志对应的 IP 解析国籍归属进行分组统计。若同一用户同一时间点内有多次登录成功，仅取最后一次登录 IP 对应国籍；每个时间点按用户数从高到低动态排序，最多展示前 5 个国家，第 6 名及以后国家全部合并为其他国家；国家名称不是固定写死，随实际数据变化；无法识别国籍的用户统一归入其他国家。</span></div>
               <div class="spec-item"><strong>用户 KYC 国籍趋势</strong><span>按当前筛选时间口径统计每个时间点内 KYC 审核通过用户的去重人数，并按该用户通过 KYC 时留存的证件国籍进行分组统计。若用户存在多次 KYC 记录，以最后一次审核通过且当前有效的证件国籍为准；每个时间点按用户数从高到低动态排序，最多展示前 5 个国家，第 6 名及以后国家全部合并为其他国家；国家名称不是固定写死，随实际数据变化；缺失证件国籍的用户统一归入其他国家。</span></div>
               <div class="spec-item"><strong>注册用户 IP 国籍趋势</strong><span>按当前筛选时间口径统计每个时间点内注册成功用户的去重人数，并按注册成功时记录的注册 IP 解析国籍进行分组统计。每个注册用户仅按首次注册成功对应的注册 IP 国籍归属一次；每个时间点按用户数从高到低动态排序，最多展示前 5 个国家，第 6 名及以后国家全部合并为其他国家；国家名称不是固定写死，随实际数据变化；无法识别国籍的用户统一归入其他国家。</span></div>
-              <div class="spec-item"><strong>首充用户 IP 国籍趋势</strong><span>按当前筛选时间口径统计每个时间点内首次完成充值成功的去重用户，并按该用户首充成功订单关联的来源 IP 解析国籍进行分组统计。每个用户仅在首充成功对应时间点计入一次；每个时间点按用户数从高到低动态排序，最多展示前 5 个国家，第 6 名及以后国家全部合并为其他国家；国家名称不是固定写死，随实际数据变化；无法识别国籍的用户统一归入其他国家。</span></div>
+              <div class="spec-item"><strong>首充用户 IP 国籍趋势</strong><span>按当前筛选时间口径统计每个时间点内首次完成充值成功的去重用户，并按该用户在该时间点内最后一次登录成功日志对应的 IP 解析国籍进行分组统计。每个用户仅在首充成功对应时间点计入一次；每个时间点按用户数从高到低动态排序，最多展示前 5 个国家，第 6 名及以后国家全部合并为其他国家；国家名称不是固定写死，随实际数据变化；无法识别国籍的用户统一归入其他国家。</span></div>
             </div>
           </div>
           <div class="spec-block">
             <h3>用户召回分析</h3>
             <div class="spec-list">
-              <div class="spec-item"><strong>大于 50U 三天未登录且无持仓用户分析</strong><span>同时满足平台总资金大于 50U、连续 3 天未登录、且无现货持仓、合约持仓、理财持仓。</span></div>
+              <div class="spec-item"><strong>大于 50U 三天未登录且无持仓用户分析</strong><span>统计所有平台总资产大于 50U 的用户，判断 1：该用户上次登录时间是否早于当前三个自然日；判断 2：该用户当前是否有持仓，若无持仓，则该用户上次平仓时间是否早于当前三个自然日；用户身份（普通/代理）以统计时的身份为准。</span></div>
             </div>
           </div>
         </div>
@@ -1532,10 +1550,10 @@
           <div class="spec-block">
             <h3>资金与交易核心指标</h3>
             <div class="spec-list">
-              <div class="spec-item"><strong>本期充值金额</strong><span>统计周期内充值成功金额之和，统一折算为 USDT。</span></div>
-              <div class="spec-item"><strong>本期提现金额</strong><span>统计周期内提现成功金额之和，统一折算为 USDT。</span></div>
+              <div class="spec-item"><strong>本期充值金额</strong><span>统计周期内充值成功金额之和，金额单位为 USDT；若后续接入其他币种，折合规则以金额统计口径为准。</span></div>
+              <div class="spec-item"><strong>本期提现金额</strong><span>统计周期内提现成功金额之和，金额单位为 USDT；若后续接入其他币种，折合规则以金额统计口径为准。</span></div>
               <div class="spec-item"><strong>净入金额</strong><span>本期充值金额减去本期提现金额。</span></div>
-              <div class="spec-item"><strong>现货成交额</strong><span>统计周期内现货成交金额之和，统一折算为 USDT。</span></div>
+              <div class="spec-item"><strong>现货成交额</strong><span>统计周期内现货撮合成交金额之和，按成交记录计一次且只算单方，金额单位为 USDT；若后续接入其他币种，折合规则以金额统计口径为准。</span></div>
               <div class="spec-item"><strong>现货手续费</strong><span>统计周期内现货成交产生的手续费之和。</span></div>
               <div class="spec-item"><strong>现货交易用户数</strong><span>统计周期内发生至少 1 次现货成交的去重用户数。</span></div>
               <div class="spec-item"><strong>本期充值用户数</strong><span>统计周期内发生充值成功行为的去重用户数。</span></div>
@@ -1567,7 +1585,7 @@
           <div class="spec-block">
             <h3>资金与交易核心指标</h3>
             <div class="spec-list">
-              <div class="spec-item"><strong>合约成交额</strong><span>统计周期内合约成交金额之和，按统一规则折算为 USDT。</span></div>
+              <div class="spec-item"><strong>合约成交额</strong><span>统计周期内合约成交金额之和，按成交记录计一次且只算单方，金额单位为 USDT；若后续接入其他币种，折合规则以金额统计口径为准。</span></div>
               <div class="spec-item"><strong>合约手续费</strong><span>统计周期内合约开仓、平仓产生的手续费之和。</span></div>
               <div class="spec-item"><strong>资金费收入</strong><span>统计周期内合约资金费净收入。</span></div>
               <div class="spec-item"><strong>用户合约总盈亏</strong><span>统计截止时点合约已实现盈亏与合约未实现盈亏之和，仅采用合约口径。</span></div>
@@ -1586,8 +1604,9 @@
               <div class="spec-item"><strong>合约总交易用户 / 盈利用户 / 离场客户趋势</strong><span>按当前筛选时间口径统计每个时间点内合约总交易用户、合约盈利用户和合约离场客户的去重用户数。离场客户定义为历史开过仓、当前无持仓且平台总资产小于 1U 的用户。</span></div>
               <div class="spec-item"><strong>合约总盈亏 / 已实现盈亏 / 未实现盈亏趋势</strong><span>按当前筛选时间口径统计每个时间点内合约总盈亏、合约已实现盈亏和合约未实现盈亏金额，三项均只采用合约口径。</span></div>
               <div class="spec-item"><strong>合约当前持仓 / 总开仓 / 总平仓金额趋势</strong><span>按当前筛选时间口径统计每个时间点内合约当前持仓金额、总开仓金额和总平仓金额。</span></div>
-              <div class="spec-item"><strong>合约高频换手 / 强平趋势</strong><span>按当前筛选时间口径统计高频换手用户数、强平用户数和强平订单数。高频换手用户定义为统计周期内合约成交笔数大于等于 20 笔的去重用户；强平用户数为发生强平的去重用户数；强平订单数为强平订单总笔数。</span></div>
-              <div class="spec-item"><strong>爆仓后现货余额低于 10U 再充值用户趋势</strong><span>按当前筛选时间口径统计满足“合约爆仓后现货余额低于 10U，后续再次充值大于等于 10U”的用户群在各时间点内的回流充值用户数、回流充值金额和回流后再开仓用户数。</span></div>
+              <div class="spec-item"><strong>合约高频换手 / 强平单趋势</strong><span>按当前筛选时间口径统计高频换手用户数和强平单。高频换手用户定义为统计周期内合约成交笔数大于等于 20 笔的去重用户；强平单为平台触发的强制平仓订单笔数。</span></div>
+              <div class="spec-item"><strong>强平单口径</strong><span>强平单指平台触发的强制平仓订单笔数。</span></div>
+              <div class="spec-item"><strong>强平后现货余额低于 10U 再充值用户趋势</strong><span>按当前筛选时间口径统计满足“合约发生强平后现货余额低于 10U，后续再次充值大于等于 10U”的用户群在各时间点内的回流充值用户数、回流充值金额和回流后再开仓用户数。</span></div>
             </div>
           </div>
           <div class="spec-block">
@@ -1603,7 +1622,7 @@
               <div class="spec-item"><strong>杠杆分层</strong><span>按统计周期内用户全部合约开仓订单的成交额加权平均杠杆倍数分层，固定区间为 10至24倍、25至49倍、50至74倍、75至99倍、100至124倍、125倍及以上。</span></div>
               <div class="spec-item"><strong>合约杠杆分层盈利率分析</strong><span>在每个杠杆区间内，统计盈利用户占该档位总用户数的比例。</span></div>
               <div class="spec-item"><strong>合约杠杆分层盈利额分析</strong><span>在每个杠杆区间内，分别统计已实现盈利额、未实现盈利额与合计盈利额，合计盈利额由已实现盈利额与未实现盈利额相加得到。</span></div>
-              <div class="spec-item"><strong>代理用户定义</strong><span>所有代理用户统一定义为：上级邀请链中存在至少 1 个母合伙人用户。</span></div>
+              <div class="spec-item"><strong>代理用户定义</strong><span>所有代理用户统一定义为：上级邀请链中存在母合伙人用户，或本人为母合伙人用户。</span></div>
               <div class="spec-item"><strong>代理用户盈利率分层分析</strong><span>按代理用户的合约总盈亏相对总开仓金额形成的盈利率进行分层；没有开仓金额的用户不进入该分析。</span></div>
               <div class="spec-item"><strong>代理用户盈利金额分层分析</strong><span>按代理用户的合约总盈亏金额分层，最低档为负100万U以下，最高档为正100万U及以上。</span></div>
             </div>
@@ -1617,8 +1636,7 @@
               <div class="spec-item"><strong>现货手续费</strong><span>统计周期内现货成交产生的手续费之和。</span></div>
               <div class="spec-item"><strong>合约手续费</strong><span>统计周期内合约开仓、平仓产生的手续费之和。</span></div>
               <div class="spec-item"><strong>提现手续费</strong><span>统计周期内提现成功订单产生的手续费之和。</span></div>
-              <div class="spec-item"><strong>强平用户数</strong><span>统计周期内发生强平的去重用户数。</span></div>
-              <div class="spec-item"><strong>强平订单数</strong><span>统计周期内合约强制平仓订单总笔数。</span></div>
+              <div class="spec-item"><strong>强平单</strong><span>统计周期内合约强制平仓订单总笔数。</span></div>
             </div>
           </div>
           <div class="spec-block">
@@ -1655,6 +1673,8 @@
             <div class="spec-list">
               <div class="spec-item"><strong>日期</strong><span>展示当前行统计周期的结束日期；若查询口径为小时、日、周、月、总，均取该统计桶的结束时间对应日期。</span></div>
               <div class="spec-item"><strong>分析维度</strong><span>当前行对应的经营用户群或分析对象。当前原型示例固定为：充提活跃用户群、现货交易用户群、合约高活跃用户群、代理团队用户群。</span></div>
+              <div class="spec-item"><strong>充提活跃用户群</strong><span>统计周期内发生过至少 1 笔充值成功或至少 1 笔提现成功的去重用户。</span></div>
+              <div class="spec-item"><strong>合约高活跃用户群</strong><span>统计周期内合约成交笔数大于等于 20 笔的去重用户。</span></div>
               <div class="spec-item"><strong>资金与交易展示内容</strong><span>明细表用于横向对比不同经营人群的充币、提币、净入、现货成交、合约成交、用户数、手续费、合约盈亏和 KYC 规模。</span></div>
               <div class="spec-item"><strong>平均持仓时长</strong><span>按该分析维度下统计周期内已平仓合约订单的平均持仓时长展示。</span></div>
               <div class="spec-item"><strong>合约盈亏展示</strong><span>合约总盈亏、合约已实现盈亏、合约未实现盈亏统一采用合约口径，不与现货混用。</span></div>
