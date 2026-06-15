@@ -1281,9 +1281,9 @@
           </div>
           <div class="card analysis-card">
             <h3 class="chart-title">合约杠杆偏好分析</h3>
-            <p class="chart-desc">帮助识别不同杠杆区间用户暴露结构和潜在强平风险，按 10-24、25-49、50-74、75-99、100-124、125 倍及以上分层。</p>
+            <p class="chart-desc">帮助识别不同杠杆区间用户暴露结构和潜在强平风险，按 1-24、25-49、50-74、75-99、100-124、125 倍及以上分层。</p>
             <div class="stack-list">
-              <div class="stack-item"><div class="stack-label">10 - 24 倍</div><div class="stack-bar"><span style="width:24%; background:#13c2c2;"></span></div><div class="stack-value">24%</div><div class="stack-extra">7,108 人</div></div>
+              <div class="stack-item"><div class="stack-label">1 - 24 倍</div><div class="stack-bar"><span style="width:24%; background:#13c2c2;"></span></div><div class="stack-value">24%</div><div class="stack-extra">7,108 人</div></div>
               <div class="stack-item"><div class="stack-label">25 - 49 倍</div><div class="stack-bar"><span style="width:21%; background:#2d8cf0;"></span></div><div class="stack-value">21%</div><div class="stack-extra">6,218 人</div></div>
               <div class="stack-item"><div class="stack-label">50 - 74 倍</div><div class="stack-bar"><span style="width:17%; background:#52c41a;"></span></div><div class="stack-value">17%</div><div class="stack-extra">5,034 人</div></div>
               <div class="stack-item"><div class="stack-label">75 - 99 倍</div><div class="stack-bar"><span style="width:13%; background:#7a5af8;"></span></div><div class="stack-value">13%</div><div class="stack-extra">3,850 人</div></div>
@@ -1295,7 +1295,7 @@
             <h3 class="chart-title">合约杠杆分层盈利率分析</h3>
             <p class="chart-desc">按杠杆区间观察盈利用户占比，帮助判断高杠杆区间的收益稳定性。</p>
             <div class="stack-list">
-              <div class="stack-item"><div class="stack-label">10 - 24 倍</div><div class="stack-bar"><span style="width:49%; background:#13c2c2;"></span></div><div class="stack-value">49%</div><div class="stack-extra">3,483 人盈利</div></div>
+              <div class="stack-item"><div class="stack-label">1 - 24 倍</div><div class="stack-bar"><span style="width:49%; background:#13c2c2;"></span></div><div class="stack-value">49%</div><div class="stack-extra">3,483 人盈利</div></div>
               <div class="stack-item"><div class="stack-label">25 - 49 倍</div><div class="stack-bar"><span style="width:44%; background:#2d8cf0;"></span></div><div class="stack-value">44%</div><div class="stack-extra">2,736 人盈利</div></div>
               <div class="stack-item"><div class="stack-label">50 - 74 倍</div><div class="stack-bar"><span style="width:38%; background:#52c41a;"></span></div><div class="stack-value">38%</div><div class="stack-extra">1,913 人盈利</div></div>
               <div class="stack-item"><div class="stack-label">75 - 99 倍</div><div class="stack-bar"><span style="width:33%; background:#7a5af8;"></span></div><div class="stack-value">33%</div><div class="stack-extra">1,271 人盈利</div></div>
@@ -1307,7 +1307,7 @@
             <h3 class="chart-title">合约杠杆分层盈利额分析</h3>
             <p class="chart-desc">展示不同杠杆区间的已实现盈利额与未实现盈利额，便于观察收益与风险是否匹配。</p>
             <div class="stack-list">
-              <div class="stack-item"><div class="stack-label">10 - 24 倍</div><div class="stack-bar"><span style="width:46%; background:#13c2c2;"></span></div><div class="stack-value">3.98M</div><div class="stack-extra">已实 +2.46M / 未实 +1.52M</div></div>
+              <div class="stack-item"><div class="stack-label">1 - 24 倍</div><div class="stack-bar"><span style="width:46%; background:#13c2c2;"></span></div><div class="stack-value">3.98M</div><div class="stack-extra">已实 +2.46M / 未实 +1.52M</div></div>
               <div class="stack-item"><div class="stack-label">25 - 49 倍</div><div class="stack-bar"><span style="width:41%; background:#2d8cf0;"></span></div><div class="stack-value">3.12M</div><div class="stack-extra">已实 +1.98M / 未实 +1.14M</div></div>
               <div class="stack-item"><div class="stack-label">50 - 74 倍</div><div class="stack-bar"><span style="width:34%; background:#52c41a;"></span></div><div class="stack-value">2.24M</div><div class="stack-extra">已实 +1.42M / 未实 +820k</div></div>
               <div class="stack-item"><div class="stack-label">75 - 99 倍</div><div class="stack-bar"><span style="width:28%; background:#7a5af8;"></span></div><div class="stack-value">1.58M</div><div class="stack-extra">已实 +1.04M / 未实 +540k</div></div>
@@ -1477,7 +1477,7 @@
         </div>
 
         <div class="spec-block">
-          <h3>图中口径问题补充</h3>
+          <h3>定义</h3>
           <div class="spec-list">
             <div class="spec-item"><strong>金额统计口径</strong><span>成交金额目前仅统计 USDT 口径，直接汇总展示，暂不做查询时实时折算。若后续接入其他币种，按用户资产落库时对应币种的实时现货 USDT 价格折合为 USDT；若该币种没有现货币对，不参与金额统计。</span></div>
             <div class="spec-item"><strong>代理团队用户数口径补充</strong><span>代理团队用户数统计包含顶级代理用户（母合伙人用户），顶代也是代理。</span></div>
@@ -1619,7 +1619,7 @@
               <div class="spec-item"><strong>持仓金额分层</strong><span>固定区间为 0至1000U、1000至10000U、10000至100000U、100000至1000000U、1000000至10000000U、10000000U以上。</span></div>
               <div class="spec-item"><strong>合约持仓金额分层盈利率分析</strong><span>在每个持仓金额档位内，统计盈利用户占该档位总用户数的比例。</span></div>
               <div class="spec-item"><strong>合约持仓金额分层盈利额分析</strong><span>在每个持仓金额档位内，分别统计已实现盈利额、未实现盈利额与合计盈利额，合计盈利额由已实现盈利额与未实现盈利额相加得到。</span></div>
-              <div class="spec-item"><strong>杠杆分层</strong><span>按统计周期内用户全部合约开仓订单的成交额加权平均杠杆倍数分层，固定区间为 10至24倍、25至49倍、50至74倍、75至99倍、100至124倍、125倍及以上。</span></div>
+              <div class="spec-item"><strong>杠杆分层</strong><span>按统计周期内用户全部合约开仓订单的成交额加权平均杠杆倍数分层，固定区间为 1至24倍、25至49倍、50至74倍、75至99倍、100至124倍、125倍及以上。</span></div>
               <div class="spec-item"><strong>合约杠杆分层盈利率分析</strong><span>在每个杠杆区间内，统计盈利用户占该档位总用户数的比例。</span></div>
               <div class="spec-item"><strong>合约杠杆分层盈利额分析</strong><span>在每个杠杆区间内，分别统计已实现盈利额、未实现盈利额与合计盈利额，合计盈利额由已实现盈利额与未实现盈利额相加得到。</span></div>
               <div class="spec-item"><strong>代理用户定义</strong><span>所有代理用户统一定义为：上级邀请链中存在母合伙人用户，或本人为母合伙人用户。</span></div>
