@@ -246,6 +246,35 @@
       box-shadow: 0 8px 18px rgba(45, 140, 240, 0.28);
     }
 
+    .filter-confirm {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 48px;
+      padding: 0 20px;
+      border: 0;
+      border-radius: 14px;
+      align-self: flex-end;
+      margin-bottom: 0;
+      background: linear-gradient(135deg, #2d8cf0 0%, #4ca6ff 100%);
+      color: #fff;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      box-shadow: 0 8px 20px rgba(45, 140, 240, 0.3);
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+      white-space: nowrap;
+    }
+    .filter-confirm:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 12px 24px rgba(45, 140, 240, 0.35);
+      opacity: 0.98;
+    }
+    .filter-confirm:active {
+      transform: translateY(0);
+    }
+
     .toolbar-note {
       margin-top: 14px;
       color: var(--ink-soft);
@@ -907,6 +936,7 @@
               <span>结束时间</span>
               <input type="text" value="2026/06/30" />
             </label>
+            <button class="filter-confirm" data-action="apply-filter">确认</button>
           </div>
           <div class="filter-divider"></div>
           <div class="cycle-panel">
@@ -1712,6 +1742,49 @@
       const initial = location.hash ? location.hash.replace('#', '') : 'overview';
       if (pages.some((page) => page.id === initial)) {
         activate(initial);
+      }
+
+      // 报表筛选 - 确认按钮
+      const confirmBtn = document.querySelector('[data-action="apply-filter"]');
+      const toolbarNote = document.querySelector('.toolbar-note');
+      const cycleChips = Array.from(document.querySelectorAll('.cycle-chip'));
+      function getCurrentCycle() {
+        const active = cycleChips.find((c) => c.classList.contains('active'));
+        return active ? active.textContent.trim() : '累计';
+      }
+      function updateToolbarNote(s, e) {
+        const ss = String(s || '').replace(/\//g, '-');
+        const ee = String(e || '').replace(/\//g, '-');
+        if (toolbarNote) toolbarNote.textContent = `当前统计口径：${getCurrentCycle()}，时间范围：${ss} 至 ${ee}。下方通过页签切换四个逻辑页面，避免长页滚动过深。`;
+      }
+      cycleChips.forEach((chip) => {
+        chip.addEventListener('click', () => {
+          cycleChips.forEach((c) => c.classList.remove('active'));
+          chip.classList.add('active');
+          const s = document.querySelectorAll('.filters .field input')[0]?.value;
+          const e = document.querySelectorAll('.filters .field input')[1]?.value;
+          updateToolbarNote(s, e);
+        });
+      });
+      if (confirmBtn) {
+        confirmBtn.addEventListener('click', () => {
+          const inputs = document.querySelectorAll('.filters .field input');
+          const s = inputs[0]?.value;
+          const e = inputs[1]?.value;
+          if (!s || !e) {
+            alert('请填写开始时间和结束时间');
+            return;
+          }
+          updateToolbarNote(s, e);
+          confirmBtn.textContent = '已更新 ✓';
+          confirmBtn.style.background = 'linear-gradient(135deg, #22c55e 0%, #4ade80 100%)';
+          confirmBtn.style.boxShadow = '0 8px 20px rgba(34, 197, 94, 0.3)';
+          setTimeout(() => {
+            confirmBtn.textContent = '确认';
+            confirmBtn.style.background = '';
+            confirmBtn.style.boxShadow = '';
+          }, 1200);
+        });
       }
     })();
   </script>
