@@ -1472,7 +1472,7 @@
             <div class="scale-guide__item"><strong>周</strong><span>按周展示，固定显示最近 30 个自然周刻度。</span></div>
             <div class="scale-guide__item"><strong>月</strong><span>按月展示，固定显示最近 30 个自然月刻度。</span></div>
             <div class="scale-guide__item"><strong>累计</strong><span>累计口径按月展示，取所有历史月份归档数据叠加当前月份未归档实时增量，固定显示最近 30 个月刻度。</span></div>
-            <div class="scale-guide__item"><strong>自由筛选日期</strong><span>自由筛选日期下，每个自然日生成 1 个数据点。自然日总数 N = 结束日期 - 开始日期 + 1。若 N 小于等于 30，X 轴展示全部 N 个日期标签；若 N 大于 30，从 30 开始依次递增查找刻度数 T，直到 N ÷ T 为整数为止，即满足 N mod T = 0。确定 T 后，标签间隔天数 S = N ÷ T。X 轴按每隔 S 个自然日展示 1 个日期标签。示例：若 N = 1038，则先用 30 试算，1038 ÷ 30 不能整除；再依次用 31、32、33 继续试算，直到 T = 173 时 1038 ÷ 173 = 6 为整数，因此该区间取 173 个日期标签，每个标签间隔 6 个自然日。所有未显示标签的自然日仍保留数据点并参与曲线绘制。</span></div>
+            <div class="scale-guide__item"><strong>自由筛选日期</strong><span>自由筛选日期，小于等于三十天，显示全部，大于30天，简单化吧，用筛选的（结束日期-开始日期）/30，余数就再加在第31个点位上。增加一个点位处理。</span></div>
           </div>
         </div>
 
