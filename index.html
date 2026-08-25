@@ -946,11 +946,11 @@
               <button class="cycle-chip">日</button>
               <button class="cycle-chip">周</button>
               <button class="cycle-chip">月</button>
-              <button class="cycle-chip active">累计</button>
+              <button class="cycle-chip active">总</button>
             </div>
           </div>
         </div>
-        <div class="toolbar-note">当前统计口径：累计，时间范围：2026-06-01 至 2026-06-30。下方通过页签切换四个逻辑页面，避免长页滚动过深。</div>
+        <div class="toolbar-note">当前统计口径：总，时间范围：2026-06-01 至 2026-06-30。下方通过页签切换四个逻辑页面，避免长页滚动过深。</div>
       </div>
     </section>
 
@@ -1501,7 +1501,7 @@
             <div class="scale-guide__item"><strong>日</strong><span>按天展示，固定显示最近 30 个自然日刻度。</span></div>
             <div class="scale-guide__item"><strong>周</strong><span>按周展示，固定显示最近 30 个自然周刻度。</span></div>
             <div class="scale-guide__item"><strong>月</strong><span>按月展示，固定显示最近 30 个自然月刻度。</span></div>
-            <div class="scale-guide__item"><strong>累计</strong><span>累计口径按月展示，取所有历史月份归档数据叠加当前月份未归档实时增量，固定显示最近 30 个月刻度。</span></div>
+            <div class="scale-guide__item"><strong>总</strong><span>总，总口径按月展示，数据小于等于30个月，则显示全部数据，大于30个月，总月数/30，余数就再加在第31个点位上。增加一个点位处理。</span></div>
             <div class="scale-guide__item"><strong>自由筛选日期</strong><span>自由筛选日期，小于等于三十天，显示全部，大于30天，简单化吧，用筛选的（结束日期-开始日期）/30，余数就再加在第31个点位上。增加一个点位处理。</span></div>
           </div>
         </div>
@@ -1750,7 +1750,7 @@
       const cycleChips = Array.from(document.querySelectorAll('.cycle-chip'));
       function getCurrentCycle() {
         const active = cycleChips.find((c) => c.classList.contains('active'));
-        return active ? active.textContent.trim() : '累计';
+        return active ? active.textContent.trim() : '总';
       }
       function updateToolbarNote(s, e) {
         const ss = String(s || '').replace(/\//g, '-');
